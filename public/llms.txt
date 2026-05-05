@@ -1,0 +1,54 @@
+# discord — Generative Engine Optimization Map
+
+> A fun prank/troll website disguised as a fake Discord Nitro giveaway page. When the user clicks 'Get Free Nitro', a fake hacking animation or scene plays out dramatically, ending with a humorous troll message in Hebrew: 'אכלתה טרולל' (You got trolled). The site is designed purely for laughs and pranking friends.
+
+---
+
+## Pages
+
+### Home
+https://example.com
+Think you scored free Discord Nitro? Watch the ultimate prank unfold! A hilarious fake hack scene awaits every curious clicker. Share with friends today!
+
+## Legal & Policy
+
+### Privacy Policy
+https://example.com/privacy
+Information about how user data is collected, stored, and protected.
+
+### Terms & Conditions
+https://example.com/terms
+Legal terms describing service usage, rights, and policies.
+
+### Accessibility Statement
+https://example.com/accessibility
+Information about WCAG compliance and accessibility features.
+
+---
+
+## How to Contact Us
+
+- (No contact details configured yet.)
+
+---
+
+# Business Context (for LLM understanding)
+
+## About discord
+A fun prank/troll website disguised as a fake Discord Nitro giveaway page. When the user clicks 'Get Free Nitro', a fake hacking animation or scene plays out dramatically, ending with a humorous troll message in Hebrew: 'אכלתה טרולל' (You got trolled). The site is designed purely for laughs and pranking friends.
+
+## Target Audience
+- Friends to Prank
+- Gaming Community Members
+- Internet Memes Enthusiasts
+
+## Industry
+entertainment/humor
+
+---
+
+# Machine-readable feeds
+
+- Sitemap (XML): https://example.com/sitemap.xml
+- Robots: https://example.com/robots.txt
+- Flattened page text (for LLMs): https://example.com/llms-full.txt

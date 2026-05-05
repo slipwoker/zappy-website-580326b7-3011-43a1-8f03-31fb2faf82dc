@@ -1,0 +1,1757 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>Claim Your Free Nitro Now — discord</title>
+    <meta name="description" content="Think you scored free Discord Nitro? Watch the ultimate prank unfold! A hilarious fake hack scene awaits every curious clicker. Share with friends today!">
+    <meta name="keywords" content="star citizen discord, discord for business, discord nitro prank, fake nitro giveaway, troll your friends">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512x512.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <!-- Zappy Analytics -->
+<script>
+(function() {
+  'use strict';
+  
+  // Configuration
+  var config = {
+    websiteId: '580326b7-3011-43a1-8f03-31fb2faf82dc',
+    apiUrl: 'https://api.zappy5.com/api/analytics/track',
+    sessionDuration: 30 * 60 * 1000, // 30 minutes
+    visitorDuration: 30 * 24 * 60 * 60 * 1000, // 30 days
+    trackPageViews: true,
+    trackClicks: true,
+    trackFormSubmissions: true
+  };
+  
+  // Generate or retrieve persistent visitor ID (30 days)
+  function getVisitorId() {
+    var visitorKey = 'zappy_visitor_' + config.websiteId;
+    var visitor = null;
+    
+    try {
+      visitor = localStorage.getItem(visitorKey);
+      if (visitor) {
+        var visitorData = JSON.parse(visitor);
+        var now = Date.now();
+        
+        // Check if visitor ID is still valid (30 days)
+        if (now - visitorData.created < config.visitorDuration) {
+          // Update last seen timestamp
+          visitorData.lastSeen = now;
+          localStorage.setItem(visitorKey, JSON.stringify(visitorData));
+          return visitorData.id;
+        }
+      }
+    } catch (e) {
+      console.warn('Zappy Analytics: LocalStorage not available');
+    }
+    
+    // Generate new visitor ID
+    var newVisitorId = 'zv_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    
+    try {
+      localStorage.setItem(visitorKey, JSON.stringify({
+        id: newVisitorId,
+        created: Date.now(),
+        lastSeen: Date.now()
+      }));
+    } catch (e) {
+      // Continue without local storage
+    }
+    
+    return newVisitorId;
+  }
+  
+  // Generate or retrieve session ID (30 minutes)
+  function getSessionId() {
+    var sessionKey = 'zappy_session_' + config.websiteId;
+    var session = null;
+    
+    try {
+      session = sessionStorage.getItem(sessionKey);
+      if (session) {
+        var sessionData = JSON.parse(session);
+        var now = Date.now();
+        
+        // Check if session is still valid
+        if (now - sessionData.timestamp < config.sessionDuration) {
+          // Update timestamp
+          sessionData.timestamp = now;
+          sessionStorage.setItem(sessionKey, JSON.stringify(sessionData));
+          return sessionData.id;
+        }
+      }
+    } catch (e) {
+      console.warn('Zappy Analytics: SessionStorage not available');
+    }
+    
+    // Generate new session ID
+    var newSessionId = 'zs_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    
+    try {
+      sessionStorage.setItem(sessionKey, JSON.stringify({
+        id: newSessionId,
+        timestamp: Date.now()
+      }));
+    } catch (e) {
+      // Continue without session storage
+    }
+    
+    return newSessionId;
+  }
+  
+  var visitorId = getVisitorId();
+  var sessionId = getSessionId();
+  
+  // Track an event
+  function trackEvent(eventType, data) {
+    data = data || {};
+    
+    var eventData = {
+      website_id: config.websiteId,
+      event_type: eventType,
+      page_path: window.location.pathname,
+      referrer: document.referrer || 'direct',
+      visitor_id: visitorId,
+      session_id: sessionId,
+      metadata: data
+    };
+    
+    // Use sendBeacon if available (better for page unload events)
+    if (navigator.sendBeacon) {
+      var blob = new Blob([JSON.stringify(eventData)], { type: 'application/json' });
+      navigator.sendBeacon(config.apiUrl, blob);
+    } else {
+      // Fallback to fetch
+      fetch(config.apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(eventData),
+        keepalive: true
+      }).catch(function(error) {
+        console.warn('Zappy Analytics: Failed to track event', error);
+      });
+    }
+  }
+  
+  // Track page view
+  if (config.trackPageViews) {
+    trackEvent('pageview', {
+      title: document.title,
+      url: window.location.href
+    });
+  }
+  
+  // Track clicks on important elements
+  if (config.trackClicks) {
+    document.addEventListener('click', function(e) {
+      var target = e.target;
+      
+      // Track button clicks (counted as actions)
+      if (target.tagName === 'BUTTON' || target.closest('button')) {
+        var button = target.tagName === 'BUTTON' ? target : target.closest('button');
+        trackEvent('click', {
+          element: 'button',
+          text: button.textContent.trim().substring(0, 100),
+          id: button.id || null,
+          class: button.className || null
+        });
+      }
+      
+      // Track link clicks (navigation - not counted as actions)
+      else if (target.tagName === 'A' || target.closest('a')) {
+        var link = target.tagName === 'A' ? target : target.closest('a');
+        trackEvent('navigation', {
+          element: 'link',
+          text: link.textContent.trim().substring(0, 100),
+          href: link.href,
+          external: link.hostname !== window.location.hostname
+        });
+      }
+    }, true);
+  }
+  
+  // Track form submissions
+  if (config.trackFormSubmissions) {
+    document.addEventListener('submit', function(e) {
+      var form = e.target;
+      
+      trackEvent('form_submit', {
+        form_id: form.id || null,
+        form_name: form.name || null,
+        form_action: form.action || null,
+        form_method: form.method || 'GET'
+      });
+    }, true);
+  }
+  
+  // Track time on page (send on page unload)
+  var pageLoadTime = Date.now();
+  
+  window.addEventListener('beforeunload', function() {
+    var timeOnPage = Math.floor((Date.now() - pageLoadTime) / 1000); // in seconds
+    
+    trackEvent('page_unload', {
+      time_on_page: timeOnPage,
+      page_path: window.location.pathname
+    });
+  });
+  
+  // Expose tracking function globally for custom events
+  window.zappyAnalytics = {
+    track: trackEvent,
+    getVisitorId: function() { return visitorId; },
+    getSessionId: function() { return sessionId; }
+  };
+  
+})();
+</script>
+<!-- End Zappy Analytics -->
+    <meta property="og:title" content="Claim Your Free Nitro Now — discord">
+    <meta property="og:description" content="Think you scored free Discord Nitro? Watch the ultimate prank unfold! A hilarious fake hack scene awaits every curious clicker. Share with friends today!">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Claim Your Free Nitro Now — discord">
+    <meta name="twitter:description" content="Think you scored free Discord Nitro? Watch the ultimate prank unfold! A hilarious fake hack scene awaits every curious clicker. Share with friends today!">
+    <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512x512.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <!-- Cookie Consent -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.css">
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.umd.js"></script>
+    <!-- Mickidum Accessibility Toolbar -->
+    <script src="https://cdn.jsdelivr.net/gh/mickidum/acc_toolbar/acctoolbar/acctoolbar.min.js"></script>
+    <link rel="stylesheet" href="/styles.css">
+
+    <style id="zappy-dropdown-submenu-styles">
+      /* ========== DESKTOP DROPDOWN SUBMENU STYLES ========== */
+      /* Base styles for dropdown submenus - parent must be positioned */
+      .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) { position: relative; }
+      /* Submenu base - hidden by default */
+      .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu { display: block !important; position: absolute !important; top: 100%; left: 0; min-width: 220px; background: white; border-radius: 8px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); padding: 8px 0; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; z-index: 1000; list-style: none; pointer-events: none; }
+      /* CRITICAL: Desktop hover styles to show dropdown */
+      .nav-menu li:hover > .sub-menu, nav li:hover > .sub-menu, .navbar li:hover > .sub-menu, #navMenu li:hover > .sub-menu { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important; }
+      /* Submenu item styling */
+      .sub-menu li { list-style: none; margin: 0; padding: 0; }
+      .sub-menu a { display: block !important; padding: 10px 16px !important; color: var(--text-dark, #333) !important; font-weight: 500; text-decoration: none; white-space: nowrap; transition: background-color 0.2s; }
+      .sub-menu .zappy-nav-child > a { padding-left: 28px !important; font-size: 0.9em !important; opacity: 0.85 !important; }
+      [dir="rtl"] .sub-menu .zappy-nav-child > a, html[lang="he"] .sub-menu .zappy-nav-child > a, html[lang="ar"] .sub-menu .zappy-nav-child > a { padding-left: 10px !important; padding-right: 28px !important; }
+      .sub-menu .zappy-nav-parent > a { font-weight: 600 !important; }
+      .sub-menu a:hover { background-color: #f5f5f5; }
+      /* RTL (Hebrew/Arabic) dropdown positioning */
+      [dir="rtl"] .nav-menu .sub-menu, [dir="rtl"] nav .sub-menu, [dir="rtl"] .navbar .sub-menu, html[lang="he"] .nav-menu .sub-menu, html[lang="he"] nav .sub-menu, html[lang="he"] .navbar .sub-menu, html[lang="ar"] .nav-menu .sub-menu, html[lang="ar"] nav .sub-menu, html[lang="ar"] .navbar .sub-menu { left: auto !important; right: 0 !important; }
+      /* Hide empty dropdown menus (exclude catalog sub-menus that use <a> children instead of <li>) */
+      .sub-menu:empty, .sub-menu:not(:has(li:not(.zappy-hidden-menu-item))):not(:has(> a)), .sub-menu:not(:has(li)):not(:has(> a)) { display: none !important; opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; }
+      /* Desktop: show submenu on Menu Group hover */
+      li:has(.menu-group-title):hover > .sub-menu { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important; }
+      /* Menu Group title styling */
+      .nav-menu > li > .menu-group-title, #navMenu > li > .menu-group-title { display: inline-block; padding: 0.5rem 1rem; cursor: default; user-select: none; }
+      
+      /* ========== MOBILE SUBMENU STYLES ========== */
+      @media (max-width: 768px) {
+        .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu { position: static !important; transform: none !important; box-shadow: none !important; background: transparent !important; max-height: 0; overflow: hidden; opacity: 0; visibility: hidden; transition: max-height 0.3s ease, opacity 0.3s ease; padding: 0 !important; border-radius: 0 !important; }
+        .navbar .sub-menu.mobile-expanded, .nav-menu .sub-menu.mobile-expanded, #navMenu .sub-menu.mobile-expanded { max-height: none !important; overflow-y: visible !important; opacity: 1 !important; visibility: visible !important; padding: 8px 0 8px 16px !important; }
+        [dir="rtl"] .sub-menu.mobile-expanded, html[lang="he"] .sub-menu.mobile-expanded { padding: 8px 16px 8px 0 !important; }
+        /* Disable hover behavior on mobile */
+        .nav-menu li:hover > .sub-menu, nav li:hover > .sub-menu, .navbar li:hover > .sub-menu, #navMenu li:hover > .sub-menu { opacity: 0; visibility: hidden; pointer-events: none; }
+        .nav-menu li > .sub-menu.mobile-expanded, nav li > .sub-menu.mobile-expanded, .navbar li > .sub-menu.mobile-expanded, #navMenu li > .sub-menu.mobile-expanded { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }
+        .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) { display: flex !important; flex-wrap: wrap !important; align-items: center !important; position: relative !important; min-height: 44px !important; }
+        .nav-menu li:has(.sub-menu) > a, nav li:has(.sub-menu) > a, .navbar li:has(.sub-menu) > a, #navMenu li:has(.sub-menu) > a { flex: 1 !important; min-width: 0 !important; }
+        .nav-menu li:has(.sub-menu) > .menu-group-title, nav li:has(.sub-menu) > .menu-group-title, .navbar li:has(.sub-menu) > .menu-group-title, #navMenu li:has(.sub-menu) > .menu-group-title { flex: 1 !important; min-width: 0 !important; padding: 0 !important; line-height: inherit !important; }
+        .nav-menu li:has(.sub-menu) > .sub-menu, nav li:has(.sub-menu) > .sub-menu, .navbar li:has(.sub-menu) > .sub-menu, #navMenu li:has(.sub-menu) > .sub-menu { flex-basis: 100% !important; width: 100% !important; }
+        .nav-menu li:has(.sub-menu) > a [class*="chevron"], .nav-menu li:has(.sub-menu) > a [class*="arrow"], .nav-menu li:has(.sub-menu) > a .fa-chevron-down, .nav-menu li:has(.sub-menu) > a .fa-angle-down, nav li:has(.sub-menu) > a [class*="chevron"], nav li:has(.sub-menu) > a [class*="arrow"], #navMenu li:has(.sub-menu) > a [class*="chevron"], #navMenu li:has(.sub-menu) > a [class*="arrow"] { display: none !important; visibility: hidden !important; }
+        .mobile-submenu-toggle { display: flex !important; align-items: center !important; justify-content: center !important; width: 44px !important; height: auto !important; background: transparent !important; border: none !important; cursor: pointer !important; color: var(--text-dark) !important; position: static !important; flex-shrink: 0 !important; align-self: stretch !important; z-index: 2 !important; padding: 0 !important; margin: 0 !important; }
+        .mobile-submenu-toggle::after { content: '' !important; width: 0 !important; height: 0 !important; border-left: 6px solid transparent !important; border-right: 6px solid transparent !important; border-top: 7px solid currentColor !important; transition: transform 0.3s ease !important; }
+        .mobile-submenu-toggle.expanded::after { transform: rotate(180deg) !important; }
+        .sub-menu a { padding: 10px 0 !important; display: block !important; color: var(--text-dark) !important; white-space: normal !important; }
+        .sub-menu .zappy-nav-child > a { padding-left: 28px !important; font-size: 0.9em !important; opacity: 0.85 !important; }
+        [dir="rtl"] .sub-menu .zappy-nav-child > a, html[lang="he"] .sub-menu .zappy-nav-child > a, html[lang="ar"] .sub-menu .zappy-nav-child > a { padding-left: 0 !important; padding-right: 28px !important; }
+        .sub-menu .zappy-nav-parent > a { font-weight: 600 !important; }
+        .nav-menu.active, #navMenu.active { max-width: 100vw !important; overflow-x: hidden !important; box-sizing: border-box !important; }
+        .navbar .sub-menu li a, nav.navbar .sub-menu li a, .zappy-products-dropdown .sub-menu a { color: var(--text-dark) !important; }
+      }
+      @media (min-width: 769px) { .mobile-submenu-toggle { display: none !important; } }
+    </style>
+
+    <style id="zappy-widget-visibility">
+      html[dir="rtl"] .whatsapp-float { right: 20px !important; left: auto !important; }
+      html[dir="ltr"] .whatsapp-float, html:not([dir]) .whatsapp-float { left: 20px !important; right: auto !important; }
+      html[dir="rtl"] #mic-access-tool-general-button, html[dir="rtl"] .mic-access-tool-general-button,
+      html[dir="rtl"] #mic-init-access-tool .mic-access-tool-general-button,
+      html[dir="rtl"] #mic-init-access-tool #mic-access-tool-general-button,
+      html[dir="rtl"] ._access-icon { left: 20px !important; right: auto !important; }
+      html[dir="ltr"] #mic-access-tool-general-button, html[dir="ltr"] .mic-access-tool-general-button,
+      html[dir="ltr"] #mic-init-access-tool .mic-access-tool-general-button,
+      html[dir="ltr"] #mic-init-access-tool #mic-access-tool-general-button,
+      html[dir="ltr"] ._access-icon,
+      html:not([dir]) #mic-access-tool-general-button, html:not([dir]) .mic-access-tool-general-button,
+      html:not([dir]) #mic-init-access-tool .mic-access-tool-general-button,
+      html:not([dir]) #mic-init-access-tool #mic-access-tool-general-button,
+      html:not([dir]) ._access-icon { right: 20px !important; left: auto !important; }
+      @media (max-width: 768px) { .whatsapp-float { display: flex !important; } }
+      @media (min-width: 769px) { .whatsapp-float { display: flex !important; } }
+      @media (max-width: 768px) {
+        #mic-access-tool-general-button, .mic-access-tool-general-button,
+        #mic-init-access-tool .mic-access-tool-general-button, #mic-init-access-tool #mic-access-tool-general-button,
+        ._access-icon { display: flex !important; visibility: visible !important; opacity: 1 !important; pointer-events: auto !important; }
+        #mic-access-tool-box, .mic-access-tool-box, #mic-init-access-tool #mic-access-tool-box,
+        div[id*="mic-access-tool-box"], ._access-menu {
+          visibility: hidden; opacity: 0; pointer-events: auto !important;
+        }
+      }
+      @media (min-width: 769px) {
+        #mic-access-tool-general-button, .mic-access-tool-general-button,
+        #mic-init-access-tool .mic-access-tool-general-button, #mic-init-access-tool #mic-access-tool-general-button,
+        ._access-icon { display: flex !important; visibility: visible !important; opacity: 1 !important; pointer-events: auto !important; }
+        #mic-access-tool-box, .mic-access-tool-box, #mic-init-access-tool #mic-access-tool-box,
+        div[id*="mic-access-tool-box"], ._access-menu {
+          visibility: hidden; opacity: 0; pointer-events: auto !important;
+        }
+      }
+    </style>
+</head>
+<body>
+
+  <nav class="navbar">
+  <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+    <svg class="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+    </svg>
+    <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" style="display: none;">
+      <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+    </svg>
+  </button>
+
+  <button class="phone-header-btn" data-phone="" aria-label="Call">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+    </svg>
+  </button>
+
+  <div class="nav-container">
+    <div class="nav-brand">
+      <a href="/" class="logo-link">
+        <img src="/assets/discord-entertainment-humor-logo.webp" alt="discord" class="logo">
+      </a>
+    </div>
+
+    <ul class="nav-menu" id="navMenu"><li><a href="#features">Features</a></li><li><a href="#benefits">Benefits</a></li><li><a href="#testimonials">Testimonials</a></li><li><a href="#stats">Stats</a></li><li><a href="#showcase">Showcase</a></li></ul>
+
+    <div class="nav-cta-container">
+      <a href="#cta" class="nav-cta-btn">Contact</a>
+    </div>
+  </div>
+</nav>
+<script>
+
+// Navbar Mobile Menu Toggle and Contrast Fix
+(function() {
+  // Use 'load' event instead of 'DOMContentLoaded' to ensure we run AFTER all other scripts
+  window.addEventListener('load', function() {
+    
+    // FIX MOBILE BUTTON CONTRAST
+    // Detect navbar background color and apply contrasting color to mobile buttons
+    const navbar = document.querySelector('.navbar, nav, header');
+    if (!navbar) {
+      console.log('[Navbar] Navbar element not found');
+      return;
+    }
+    
+    // DECLARE VARIABLES EARLY to avoid Temporal Dead Zone errors
+    // These are used in multiple places below
+    let mobileToggle = document.getElementById('mobileToggle') ||
+                       document.querySelector('.mobile-toggle') ||
+                       document.querySelector('.hamburger') ||
+                       document.querySelector('.hamburger-menu') ||
+                       document.querySelector('.menu-toggle') ||
+                       document.querySelector('.burger-menu') ||
+                       document.querySelector('[aria-label="Menu"]') ||
+                       document.querySelector('[aria-label="תפריט"]');
+    
+    const phoneBtn = document.querySelector('.phone-header-btn');
+    
+    const computedStyle = window.getComputedStyle(navbar);
+    let bgColor = computedStyle.backgroundColor;
+    
+    console.log('[Navbar] Initial navbar background:', bgColor);
+    
+    // Check if background is transparent or rgba with 0 alpha
+    const isTransparent = bgColor === 'transparent' || 
+                         bgColor === 'rgba(0, 0, 0, 0)' ||
+                         (bgColor.startsWith('rgba') && bgColor.includes(', 0)'));
+    
+    if (isTransparent) {
+      // Check for background-image or gradient
+      const bgImage = computedStyle.backgroundImage;
+      if (bgImage && bgImage !== 'none') {
+        console.log('[Navbar] Navbar has background image/gradient, using dark text');
+        bgColor = 'rgb(240, 240, 240)'; // Assume light background
+      } else {
+        // Transparent navbar - check body background
+        const bodyBg = window.getComputedStyle(document.body).backgroundColor;
+        console.log('[Navbar] Navbar transparent, using body background:', bodyBg);
+        bgColor = bodyBg;
+      }
+    }
+    
+    // Calculate luminance to determine if background is light or dark
+    const rgb = bgColor.match(/\d+/g);
+    if (rgb && rgb.length >= 3) {
+      const r = parseInt(rgb[0]);
+      const g = parseInt(rgb[1]);
+      const b = parseInt(rgb[2]);
+      const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+      
+      // Mobile button colors are set by Claude's AI-generated CSS (same as .nav-menu a)
+      // No dynamic color overrides needed - colors come from the generated navbar CSS
+      console.log('[Navbar] Mobile button colors preserved from Claude CSS (luminance:', luminance.toFixed(2) + ')');
+      
+      // FIX ICON SIZES - Ensure SVGs are properly sized and visible
+      // INJECT CRITICAL CSS TO OVERRIDE ANY CONFLICTING RULES
+      const criticalCSS = document.createElement('style');
+      criticalCSS.id = 'zappy-mobile-nav-fix';
+      const htmlLang = document.documentElement.lang || 'en';
+      const htmlDir = document.documentElement.dir || 'ltr';
+      // Check both dir attribute AND lang for RTL detection
+      // dir="rtl" is the most reliable indicator
+      const isRTL = htmlDir === 'rtl' || htmlLang === 'he' || htmlLang === 'ar';
+      
+      criticalCSS.textContent = `
+        /* Hide mobile buttons on desktop, show only on mobile */
+        @media (min-width: 769px) {
+          .mobile-toggle,
+          .phone-header-btn {
+            display: none !important;
+          }
+        }
+        
+        /* Show and position mobile buttons correctly on mobile */
+        @media (max-width: 768px) {
+          .mobile-toggle,
+          .phone-header-btn {
+            position: absolute !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            z-index: 1001 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 36px !important;
+            height: 36px !important;
+            border-radius: 50% !important;
+            border: none !important;
+            cursor: pointer !important;
+            padding: 6px !important;
+            background: none !important;
+            color: var(--nav-text, var(--text-dark)) !important;
+          }
+          
+          /* LTR positioning (default): hamburger LEFT, phone RIGHT */
+          html:not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .mobile-toggle,
+          html[dir="ltr"] .mobile-toggle {
+            left: 12px !important;
+            right: auto !important;
+          }
+          html:not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .phone-header-btn,
+          html[dir="ltr"] .phone-header-btn {
+            right: 12px !important;
+            left: auto !important;
+          }
+          
+          /* RTL positioning: hamburger RIGHT, phone LEFT */
+          html[dir="rtl"] .mobile-toggle,
+          html[lang="he"] .mobile-toggle,
+          html[lang="ar"] .mobile-toggle {
+            right: 12px !important;
+            left: auto !important;
+          }
+          html[dir="rtl"] .phone-header-btn,
+          html[lang="he"] .phone-header-btn,
+          html[lang="ar"] .phone-header-btn {
+            left: 12px !important;
+            right: auto !important;
+          }
+          
+          /* CRITICAL: Ensure nav-container has min-height on mobile */
+          /* All children are positioned absolutely/fixed on mobile, so height:auto collapses to 0 */
+          .nav-container {
+            min-height: 70px !important;
+            position: relative !important;
+          }
+          
+          /* Ensure SVG icons are properly sized and inherit color */
+          .mobile-toggle svg,
+          .phone-header-btn svg {
+            width: 24px !important;
+            height: 24px !important;
+            /* Don't force display - let JavaScript control hamburger/close toggle */
+          }
+          
+          /* Reset nav-cta-container on mobile - remove desktop box-shadow/padding */
+          /* that creates a visible ghost box when CTA button is hidden */
+          .nav-cta-container {
+            box-shadow: none !important;
+            padding: 0 !important;
+          }
+          
+          /* Hide nav-cta-container entirely on mobile when there's no lang-switcher */
+          /* (only the CTA button is inside, and it's hidden on mobile) */
+          .nav-cta-container:not(:has(.lang-switcher)) {
+            display: none !important;
+          }
+          
+          /* CRITICAL: Prevent hero image fade gradient from bleeding over headline text */
+          /* The .image-fade-gradient has bottom: -30px (extends below parent) */
+          /* On mobile stacked layout, this overlaps the h1 text below the image */
+          .hero-image-column {
+            overflow: hidden !important;
+          }
+          .image-fade-gradient {
+            bottom: 0 !important;
+          }
+          
+          /* Hide desktop language switcher on mobile - hamburger menu handles it */
+          /* High specificity to override stored CSS */
+          .lang-switcher,
+          .nav-cta-container .lang-switcher,
+          .nav-container .lang-switcher,
+          .navbar .lang-switcher,
+          .navbar .nav-cta-container .lang-switcher {
+            display: none !important;
+          }
+        }
+      `;
+      
+      // Remove existing fix if present and inject new one
+      const existing = document.getElementById('zappy-mobile-nav-fix');
+      if (existing) existing.remove();
+      document.head.appendChild(criticalCSS);
+      
+      console.log('[Navbar] Critical CSS injected for mobile nav positioning');
+      
+      // ONLY apply inline positioning styles on mobile viewport
+      // On desktop, the CSS handles hiding these buttons with display: none
+      // Inline styles were breaking desktop layout by overriding CSS
+      const isMobileViewport = window.innerWidth <= 768;
+      
+      if (mobileToggle) {
+        // Icon sizing applies to all viewports for consistency
+        const hamburgerIcon = mobileToggle.querySelector('.hamburger-icon');
+        const closeIcon = mobileToggle.querySelector('.close-icon');
+        
+        if (hamburgerIcon) {
+          hamburgerIcon.style.setProperty('width', '24px', 'important');
+          hamburgerIcon.style.setProperty('height', '24px', 'important');
+          hamburgerIcon.style.setProperty('display', 'block', 'important'); // Show hamburger by default
+        }
+        if (closeIcon) {
+          closeIcon.style.setProperty('width', '24px', 'important');
+          closeIcon.style.setProperty('height', '24px', 'important');
+          closeIcon.style.setProperty('display', 'none', 'important'); // Hide close icon by default
+        }
+        
+        // ONLY set positioning inline styles on mobile
+        if (isMobileViewport) {
+          mobileToggle.style.setProperty('position', 'absolute', 'important');
+          mobileToggle.style.setProperty('top', '50%', 'important');
+          mobileToggle.style.setProperty('transform', 'translateY(-50%)', 'important');
+          mobileToggle.style.setProperty('z-index', '1001', 'important');
+          
+          // Clear any inline left/right so CSS can take over based on html[dir]
+          mobileToggle.style.removeProperty('left');
+          mobileToggle.style.removeProperty('right');
+          
+          console.log('[Navbar] Mobile toggle positioning applied (mobile viewport)');
+        } else {
+          // On desktop, clear any positioning styles to let CSS handle it
+          mobileToggle.style.removeProperty('position');
+          mobileToggle.style.removeProperty('top');
+          mobileToggle.style.removeProperty('transform');
+          mobileToggle.style.removeProperty('z-index');
+          mobileToggle.style.removeProperty('left');
+          mobileToggle.style.removeProperty('right');
+          console.log('[Navbar] Desktop viewport - cleared mobile toggle inline positioning');
+        }
+      }
+      
+      if (phoneBtn) {
+        // Icon sizing applies to all viewports
+        const phoneIcon = phoneBtn.querySelector('svg');
+        if (phoneIcon) {
+          phoneIcon.style.width = '24px';
+          phoneIcon.style.height = '24px';
+          phoneIcon.setAttribute('width', '24');
+          phoneIcon.setAttribute('height', '24');
+        }
+        
+        // ONLY set positioning inline styles on mobile
+        if (isMobileViewport) {
+          phoneBtn.style.setProperty('position', 'absolute', 'important');
+          phoneBtn.style.setProperty('top', '50%', 'important');
+          phoneBtn.style.setProperty('transform', 'translateY(-50%)', 'important');
+          phoneBtn.style.setProperty('z-index', '1001', 'important');
+          
+          // Clear any inline left/right so CSS can take over based on html[dir]
+          phoneBtn.style.removeProperty('left');
+          phoneBtn.style.removeProperty('right');
+          
+          console.log('[Navbar] Phone button positioning applied (mobile viewport)');
+        } else {
+          // On desktop, clear any positioning styles to let CSS handle it
+          phoneBtn.style.removeProperty('position');
+          phoneBtn.style.removeProperty('top');
+          phoneBtn.style.removeProperty('transform');
+          phoneBtn.style.removeProperty('z-index');
+          phoneBtn.style.removeProperty('left');
+          phoneBtn.style.removeProperty('right');
+          console.log('[Navbar] Desktop viewport - cleared phone button inline positioning');
+        }
+      }
+    } else {
+      console.log('[Navbar] Could not parse background color:', bgColor);
+    }
+    
+    // MOBILE MENU TOGGLE
+    // Re-query in case DOM changed (mobileToggle already declared at top of function)
+    mobileToggle = document.getElementById('mobileToggle') ||
+                   document.querySelector('.mobile-toggle') ||
+                   document.querySelector('.hamburger') ||
+                   document.querySelector('.hamburger-menu') ||
+                   document.querySelector('.menu-toggle') ||
+                   document.querySelector('.burger-menu') ||
+                   document.querySelector('[aria-label="Menu"]') ||
+                   document.querySelector('[aria-label="תפריט"]');
+    
+    // EXPANDED SEARCH: Find nav menu by ID or class
+    const navMenu = document.getElementById('navMenu') ||
+                  document.querySelector('.nav-menu') ||
+                  document.querySelector('.nav-links') ||
+                  document.querySelector('nav ul:not(.submenu)');
+    
+    if (!mobileToggle || !navMenu) {
+      console.log('[Navbar] Mobile toggle or menu not found:', { toggle: !!mobileToggle, menu: !!navMenu });
+      return;
+    }
+    
+    // Ensure navMenu has ID for CSS targeting
+    if (!navMenu.id) {
+      navMenu.id = 'navMenu';
+    }
+    
+    console.log('[Navbar] Initializing mobile menu...');
+    
+    // Remove any existing event listeners by cloning the button
+    const newToggle = mobileToggle.cloneNode(true);
+    mobileToggle.parentNode.replaceChild(newToggle, mobileToggle);
+    
+    // Toggle menu on button click - use newToggle now
+    newToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const hamburgerIcon = this.querySelector('.hamburger-icon');
+      const closeIcon = this.querySelector('.close-icon');
+      const isActive = navMenu.classList.contains('active');
+      
+      if (isActive) {
+        // Close menu
+        navMenu.classList.remove('active');
+        if (hamburgerIcon) hamburgerIcon.style.setProperty('display', 'block', 'important');
+        if (closeIcon) closeIcon.style.setProperty('display', 'none', 'important');
+        document.body.style.overflow = '';
+        console.log('[Navbar] Menu closed');
+      } else {
+        // Open menu
+        navMenu.classList.add('active');
+        if (hamburgerIcon) hamburgerIcon.style.setProperty('display', 'none', 'important');
+        if (closeIcon) closeIcon.style.setProperty('display', 'block', 'important');
+        document.body.style.overflow = 'hidden';
+        console.log('[Navbar] Menu opened');
+      }
+    });
+    
+    // Close menu when clicking nav links (but NOT dropdown toggles)
+    const navLinks = navMenu.querySelectorAll('a');
+    navLinks.forEach(function(link) {
+      link.addEventListener('click', function() {
+        // Don't close if it's a dropdown child (unless it's a real navigation link)
+        if (this.getAttribute('href') === '#') return;
+        
+        const hamburgerIcon = newToggle.querySelector('.hamburger-icon');
+        const closeIcon = newToggle.querySelector('.close-icon');
+        
+        navMenu.classList.remove('active');
+        if (hamburgerIcon) hamburgerIcon.style.setProperty('display', 'block', 'important');
+        if (closeIcon) closeIcon.style.setProperty('display', 'none', 'important');
+        document.body.style.overflow = '';
+        console.log('[Navbar] Menu closed (link clicked)');
+      });
+    });
+    
+    // DROPDOWN MENU TOGGLE (for mobile and touch devices)
+    var dropdownToggles = navMenu.querySelectorAll('.dropdown-toggle');
+    dropdownToggles.forEach(function(toggle) {
+      toggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var parent = this.closest('.nav-dropdown');
+        if (!parent) return;
+        
+        // Close other open dropdowns at the same level
+        var siblings = parent.parentNode.querySelectorAll('.nav-dropdown.open');
+        siblings.forEach(function(sib) {
+          if (sib !== parent) sib.classList.remove('open');
+        });
+        
+        parent.classList.toggle('open');
+        console.log('[Navbar] Dropdown toggled:', parent.classList.contains('open') ? 'open' : 'closed');
+      });
+    });
+    
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.nav-dropdown')) {
+        var openDropdowns = document.querySelectorAll('.nav-dropdown.open');
+        openDropdowns.forEach(function(dd) { dd.classList.remove('open'); });
+      }
+    });
+    
+    console.log('[Navbar] Dropdown handlers initialized for ' + dropdownToggles.length + ' dropdowns');
+    
+    // Phone button functionality (phoneBtn already declared at top of function)
+    if (phoneBtn) {
+      phoneBtn.addEventListener('click', function() {
+        // Get phone number from placeholder in page or use default
+        const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+        const phoneNumber = phoneLinks.length > 0 
+          ? phoneLinks[0].getAttribute('href').replace('tel:', '')
+          : '[business_phone]';
+        
+        window.location.href = 'tel:' + phoneNumber;
+        console.log('[Navbar] Phone button clicked');
+      });
+    }
+    
+    console.log('[Navbar] Mobile menu initialized successfully');
+    
+    // WhatsApp button visibility is now controlled via CSS (siteSettings).
+    // No JS-based desktop hiding — the button is visible on both mobile and desktop by default.
+  });
+})();
+
+</script>
+  
+  <main>
+    <section id="hero" class="home-hero-section" data-layout-spec="Home-hero" data-hero-type="fullscreen-scrim">
+  <!-- Background Image -->
+  <div class="home-hero-bg">
+    <img data-hero-bg="true" data-placeholder="home-hero-image-1" data-context="Cinematic dark gamer room with multiple glowing neon monitors displaying Discord-style interface elements, purple and cyan neon lighting, dramatic glitch light streaks, holographic UI panels floating in the air, deep dark background with bloom effects around bright highlights, moody atmospheric fog, star citizen discord aesthetic, ultra-wide angle dramatic composition" width="1200" height="675" src="/assets/site-home-hero-image-1.webp" alt="Neon gamer setup with glowing Discord-style monitors and dramatic lighting">
+  </div>
+
+  <!-- Scrim Overlay -->
+  <div class="home-hero-scrim" aria-hidden="true"></div>
+
+  <!-- Scanlines Overlay -->
+  <div class="home-hero-scanlines" aria-hidden="true"></div>
+
+  <!-- Confetti Decoration -->
+  <div class="home-hero-confetti" aria-hidden="true">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" width="400" height="300">
+      <rect x="20" y="30" width="8" height="14" fill="#C7FF3D" opacity="0.6" transform="rotate(25 24 37)"></rect>
+      <rect x="80" y="10" width="5" height="10" fill="#FF5EA8" opacity="0.7" transform="rotate(-15 82 15)"></rect>
+      <rect x="150" y="50" width="7" height="12" fill="#C7FF3D" opacity="0.5" transform="rotate(40 153 56)"></rect>
+      <circle cx="200" cy="20" r="4" fill="#FF5EA8" opacity="0.6"></circle>
+      <rect x="260" y="35" width="6" height="11" fill="#C7FF3D" opacity="0.7" transform="rotate(-30 263 40)"></rect>
+      <circle cx="310" cy="15" r="3" fill="#C7FF3D" opacity="0.5"></circle>
+      <rect x="340" y="60" width="8" height="5" fill="#FF5EA8" opacity="0.6" transform="rotate(20 344 62)"></rect>
+      <circle cx="380" cy="40" r="5" fill="#C7FF3D" opacity="0.4"></circle>
+      <rect x="50" y="80" width="4" height="9" fill="#FF5EA8" opacity="0.5" transform="rotate(-45 52 84)"></rect>
+      <circle cx="120" cy="90" r="3" fill="#C7FF3D" opacity="0.6"></circle>
+      <rect x="230" y="75" width="6" height="10" fill="#C7FF3D" opacity="0.55" transform="rotate(15 233 80)"></rect>
+      <rect x="370" y="90" width="5" height="8" fill="#FF5EA8" opacity="0.65" transform="rotate(-20 372 94)"></rect>
+    </svg>
+  </div>
+
+  <!-- Glitch Particles -->
+  <div class="home-hero-glitch-particles" aria-hidden="true">
+    <span class="gp gp-1"></span>
+    <span class="gp gp-2"></span>
+    <span class="gp gp-3"></span>
+    <span class="gp gp-4"></span>
+    <span class="gp gp-5"></span>
+    <span class="gp gp-6"></span>
+  </div>
+
+  <!-- Content Overlay -->
+  <div class="home-hero-content-wrap">
+    <div class="home-hero-content">
+
+      <!-- Eyebrow Label -->
+      <div class="home-hero-eyebrow">
+        <span class="home-hero-badge">
+          <i class="fa-solid fa-bolt"></i>
+          LIMITED TIME — STAR CITIZEN DISCORD EXCLUSIVE
+        </span>
+      </div>
+
+      <!-- H1 -->
+      <h1 class="home-hero-h1">
+        GET <span class="home-hero-h1-accent">FREE</span><br>
+        DISCORD<br>
+        NITRO<span class="home-hero-h1-blink">_</span>
+      </h1>
+
+      <!-- H3 Subtitle -->
+      <h3 class="home-hero-h3">
+        Only 3 spots left. Seriously. This is 100% real. We promise.
+      </h3>
+
+      <!-- CTAs -->
+      <div class="home-hero-ctas">
+        <a href="#prank-trigger" class="home-hero-btn-primary">
+          <i class="fa-solid fa-gift"></i>
+          CLAIM FREE NITRO NOW
+        </a>
+        <a href="#whats-included" class="home-hero-btn-secondary">
+          See what’s included →
+        </a>
+      </div>
+
+      <!-- Micro Trust Line -->
+      <p class="home-hero-micro">
+        <i class="fa-solid fa-shield-halved"></i>
+        &nbsp;Instant access • No credit card • Only <strong>3 codes remaining</strong>
+      </p>
+
+    </div>
+  </div>
+
+  <!-- Bottom Divider: Glitch Ribbon -->
+  <div class="home-hero-divider-wrapper">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1200 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Magenta glitch band -->
+      <path d="M0,90 L0,52 L60,46 L110,54 L160,44 L220,50 L270,42 L310,52 L360,45 L410,55 L460,43 L510,51 L560,44 L610,54 L660,46 L710,56 L760,44 L810,52 L860,45 L910,55 L960,43 L1010,51 L1060,45 L1110,53 L1160,47 L1200,55 L1200,90 Z" fill="#0A0A14" opacity="0.18"></path>
+      <!-- Cyan glitch band -->
+      <path d="M0,90 L0,60 L40,54 L90,64 L140,56 L190,66 L250,58 L300,68 L350,60 L400,70 L450,62 L500,72 L550,60 L600,68 L650,62 L700,72 L750,62 L800,70 L850,62 L900,70 L950,60 L1000,68 L1050,60 L1100,68 L1150,62 L1200,70 L1200,90 Z" fill="#0A0A14" opacity="0.14"></path>
+      <!-- Main dark fill -->
+      <path d="M0,90 L0,68 L30,62 L70,70 L120,64 L170,72 L220,65 L270,73 L320,67 L370,75 L420,68 L470,76 L520,68 L570,76 L620,70 L670,78 L720,70 L770,78 L820,70 L870,78 L920,70 L970,78 L1020,70 L1070,78 L1120,72 L1170,78 L1200,74 L1200,90 Z" fill="#0A0A14"></path>
+    </svg>
+  </div>
+</section>
+
+<section class="home-features-section" data-layout-spec="Home-features">
+  <!-- Pixel noise texture overlay -->
+  <div class="hf-noise-overlay" aria-hidden="true"></div>
+
+  <!-- Glitch skull decorative motif -->
+  <div class="hf-skull-deco" aria-hidden="true">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 220 260" fill="none" xmlns="http://www.w3.org/2000/svg" width="220" height="260">
+      <g opacity="0.55">
+        <!-- skull outline -->
+        <ellipse cx="110" cy="100" rx="72" ry="80" stroke="#E91E8C" stroke-width="2.5"></ellipse>
+        <!-- glitch offset copy -->
+        <ellipse cx="114" cy="100" rx="72" ry="80" stroke="#C7FF3D" stroke-width="1" opacity="0.4"></ellipse>
+        <!-- eye sockets -->
+        <ellipse cx="82" cy="90" rx="18" ry="20" fill="#0A0A14" stroke="#E91E8C" stroke-width="2"></ellipse>
+        <ellipse cx="138" cy="90" rx="18" ry="20" fill="#0A0A14" stroke="#E91E8C" stroke-width="2"></ellipse>
+        <!-- glitch eye offset -->
+        <ellipse cx="86" cy="90" rx="18" ry="20" stroke="#C7FF3D" stroke-width="1" opacity="0.35"></ellipse>
+        <ellipse cx="142" cy="90" rx="18" ry="20" stroke="#C7FF3D" stroke-width="1" opacity="0.35"></ellipse>
+        <!-- nose cavity -->
+        <path d="M104 118 L110 130 L116 118 Z" fill="#0A0A14" stroke="#E91E8C" stroke-width="1.5"></path>
+        <!-- teeth -->
+        <rect x="84" y="148" width="14" height="18" rx="2" fill="none" stroke="#E91E8C" stroke-width="1.5"></rect>
+        <rect x="103" y="148" width="14" height="18" rx="2" fill="none" stroke="#E91E8C" stroke-width="1.5"></rect>
+        <rect x="122" y="148" width="14" height="18" rx="2" fill="none" stroke="#E91E8C" stroke-width="1.5"></rect>
+        <!-- jaw -->
+        <path d="M38 140 Q38 175 110 180 Q182 175 182 140" stroke="#E91E8C" stroke-width="2" fill="none"></path>
+        <!-- glitch horizontal bars -->
+        <rect x="60" y="78" width="40" height="3" fill="#C7FF3D" opacity="0.5"></rect>
+        <rect x="130" y="95" width="30" height="2" fill="#00D4FF" opacity="0.4"></rect>
+        <rect x="50" y="112" width="20" height="2" fill="#C7FF3D" opacity="0.3"></rect>
+      </g>
+    </svg>
+  </div>
+
+  <div class="hf-container">
+    <!-- Intro block -->
+    <div class="hf-intro">
+      <div class="hf-eyebrow">
+        <span class="hf-badge hf-badge-lime">⚡ EXCLUSIVE OFFER</span>
+        <span class="hf-badge hf-badge-magenta">LIMITED TIME</span>
+      </div>
+      <h2 class="hf-heading">The Most Generous Giveaway<br><span class="hf-heading-accent">You've Never Seen.</span></h2>
+      <p class="hf-subtext">Instant Discord Nitro. Zero cost. No strings attached. Totally, completely, absolutely 100% real. Why would we lie? Claim yours before it's gone — thousands of star citizen discord users already have.</p>
+    </div>
+
+    <!-- Feature cards grid -->
+    <div class="hf-cards-grid">
+
+      <!-- Card 1 -->
+      <article class="hf-card">
+        <div class="hf-card-badge hf-badge-lime">INSTANT</div>
+        <div class="hf-card-icon" aria-hidden="true">
+          <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+            <polygon points="28,4 34,22 54,22 38,34 44,52 28,40 12,52 18,34 2,22 22,22" stroke="#C7FF3D" stroke-width="2" fill="none"></polygon>
+            <polygon points="28,12 32,24 44,24 34,31 38,44 28,36 18,44 22,31 12,24 24,24" fill="rgba(199,255,61,0.12)"></polygon>
+            <line x1="28" y1="4" x2="28" y2="52" stroke="#C7FF3D" stroke-width="0.5" opacity="0.3"></line>
+            <circle cx="28" cy="28" r="6" fill="rgba(199,255,61,0.2)" stroke="#C7FF3D" stroke-width="1.5"></circle>
+          </svg>
+        </div>
+        <div class="hf-card-content">
+          <h3 class="hf-card-title">Instant Nitro Activation</h3>
+          <p class="hf-card-text">Click once and boom — your account upgrades in milliseconds. No email confirmation, no waiting period, no payment info. Just pure, instant Nitro delivered straight to your soul.</p>
+        </div>
+        <div class="hf-card-glow hf-glow-lime" aria-hidden="true"></div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="hf-card">
+        <div class="hf-card-badge hf-badge-magenta">EXCLUSIVE</div>
+        <div class="hf-card-icon" aria-hidden="true">
+          <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+            <rect x="8" y="8" width="40" height="40" rx="4" stroke="#FF5EA8" stroke-width="2" fill="none"></rect>
+            <rect x="14" y="14" width="28" height="28" rx="2" stroke="#FF5EA8" stroke-width="1" fill="rgba(255,94,168,0.08)"></rect>
+            <path d="M20 28 L26 34 L36 22" stroke="#FF5EA8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle cx="44" cy="12" r="6" fill="#FF5EA8"></circle>
+            <path d="M42 12 L44 14 L48 10" stroke="#0A0A14" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            <line x1="8" y1="22" x2="48" y2="22" stroke="#FF5EA8" stroke-width="0.5" opacity="0.3"></line>
+          </svg>
+        </div>
+        <div class="hf-card-content">
+          <h3 class="hf-card-title">Exclusive Boosts &amp; Perks</h3>
+          <p class="hf-card-text">Unlock every server boost, animated avatar, and custom emoji pack ever made. Also includes 2 free server boosts, HD streaming, and a golden badge that makes everyone jealous. Totally legit discord for business users love it.</p>
+        </div>
+        <div class="hf-card-glow hf-glow-magenta" aria-hidden="true"></div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="hf-card">
+        <div class="hf-card-badge hf-badge-cyan">ULTRA-FAST</div>
+        <div class="hf-card-icon" aria-hidden="true">
+          <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+            <circle cx="28" cy="28" r="22" stroke="#00D4FF" stroke-width="2" fill="none"></circle>
+            <circle cx="28" cy="28" r="14" stroke="#00D4FF" stroke-width="1" fill="rgba(0,212,255,0.06)"></circle>
+            <path d="M28 6 L28 28 L42 20" stroke="#00D4FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle cx="28" cy="28" r="3" fill="#00D4FF"></circle>
+            <path d="M10 28 Q10 10 28 10" stroke="#00D4FF" stroke-width="0.5" opacity="0.4" stroke-dasharray="3 3"></path>
+            <path d="M46 28 Q46 46 28 46" stroke="#00D4FF" stroke-width="0.5" opacity="0.4" stroke-dasharray="3 3"></path>
+          </svg>
+        </div>
+        <div class="hf-card-content">
+          <h3 class="hf-card-title">Ultra-Fast Claim Flow</h3>
+          <p class="hf-card-text">Our proprietary 3-step claim system is so fast it feels illegal. Verified by top gg discord engineers and certified by absolutely nobody. Just press the button and experience the magic yourself.</p>
+        </div>
+        <div class="hf-card-glow hf-glow-cyan" aria-hidden="true"></div>
+      </article>
+
+    </div>
+    <!-- end cards grid -->
+  </div>
+
+  <!-- Bottom divider: acid-lime gradient fade into light section -->
+  <div class="hf-divider-wrapper">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1200 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="hf-divider-grad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="rgba(199,255,61,0)"></stop>
+          <stop offset="60%" stop-color="rgba(199,255,61,0.06)"></stop>
+          <stop offset="100%" stop-color="#FFF8F0"></stop>
+        </linearGradient>
+      </defs>
+      <!-- halftone dot rows fading out -->
+      <g opacity="0.18">
+        <circle cx="60" cy="20" r="2" fill="#C7FF3D"></circle>
+        <circle cx="120" cy="20" r="2" fill="#C7FF3D"></circle>
+        <circle cx="180" cy="20" r="2" fill="#C7FF3D"></circle>
+        <circle cx="240" cy="20" r="2" fill="#C7FF3D"></circle>
+        <circle cx="300" cy="20" r="2" fill="#C7FF3D"></circle>
+        <circle cx="360" cy="20" r="2" fill="#C7FF3D"></circle>
+        <circle cx="420" cy="20" r="2" fill="#C7FF3D"></circle>
+        <circle cx="480" cy="20" r="2" fill="#C7FF3D"></circle>
+        <circle cx="540" cy="20" r="2" fill="#C7FF3D"></circle>
+        <circle cx="600" cy="20" r="2" fill="#C7FF3D"></circle>
+        <circle cx="660" cy="20" r="2" fill="#C7FF3D"></circle>
+        <circle cx="720" cy="20" r="2" fill="#C7FF3D"></circle>
+        <circle cx="780" cy="20" r="2" fill="#C7FF3D"></circle>
+        <circle cx="840" cy="20" r="2" fill="#C7FF3D"></circle>
+        <circle cx="900" cy="20" r="2" fill="#C7FF3D"></circle>
+        <circle cx="960" cy="20" r="2" fill="#C7FF3D"></circle>
+        <circle cx="1020" cy="20" r="2" fill="#C7FF3D"></circle>
+        <circle cx="1080" cy="20" r="2" fill="#C7FF3D"></circle>
+        <circle cx="1140" cy="20" r="2" fill="#C7FF3D"></circle>
+      </g>
+      <g opacity="0.10">
+        <circle cx="90" cy="45" r="2" fill="#C7FF3D"></circle>
+        <circle cx="150" cy="45" r="2" fill="#C7FF3D"></circle>
+        <circle cx="210" cy="45" r="2" fill="#C7FF3D"></circle>
+        <circle cx="270" cy="45" r="2" fill="#C7FF3D"></circle>
+        <circle cx="330" cy="45" r="2" fill="#C7FF3D"></circle>
+        <circle cx="390" cy="45" r="2" fill="#C7FF3D"></circle>
+        <circle cx="450" cy="45" r="2" fill="#C7FF3D"></circle>
+        <circle cx="510" cy="45" r="2" fill="#C7FF3D"></circle>
+        <circle cx="570" cy="45" r="2" fill="#C7FF3D"></circle>
+        <circle cx="630" cy="45" r="2" fill="#C7FF3D"></circle>
+        <circle cx="690" cy="45" r="2" fill="#C7FF3D"></circle>
+        <circle cx="750" cy="45" r="2" fill="#C7FF3D"></circle>
+        <circle cx="810" cy="45" r="2" fill="#C7FF3D"></circle>
+        <circle cx="870" cy="45" r="2" fill="#C7FF3D"></circle>
+        <circle cx="930" cy="45" r="2" fill="#C7FF3D"></circle>
+        <circle cx="990" cy="45" r="2" fill="#C7FF3D"></circle>
+        <circle cx="1050" cy="45" r="2" fill="#C7FF3D"></circle>
+        <circle cx="1110" cy="45" r="2" fill="#C7FF3D"></circle>
+      </g>
+      <path d="M0,90 L0,38 Q100,28 200,40 T400,32 Q500,28 600,38 T800,30 Q900,26 1000,36 T1200,32 L1200,90 Z" fill="var(--bg-light)"></path>
+    </svg>
+  </div>
+</section>
+
+<section class="home-benefits-section" data-layout-spec="Home-benefits">
+  <!-- Decorative confetti scatter -->
+  <div class="hb-confetti" aria-hidden="true">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="20" y="40" width="8" height="14" rx="1" fill="#C7FF3D" opacity="0.55" transform="rotate(25 20 40)"></rect>
+      <rect x="80" y="15" width="6" height="10" rx="1" fill="#FF5EA8" opacity="0.5" transform="rotate(-15 80 15)"></rect>
+      <circle cx="140" cy="55" r="4" fill="#C7FF3D" opacity="0.45"></circle>
+      <rect x="200" y="20" width="10" height="6" rx="1" fill="#FF5EA8" opacity="0.4" transform="rotate(40 200 20)"></rect>
+      <circle cx="270" cy="35" r="3" fill="#C7FF3D" opacity="0.5"></circle>
+      <rect x="320" y="60" width="7" height="12" rx="1" fill="#FF5EA8" opacity="0.45" transform="rotate(-30 320 60)"></rect>
+      <circle cx="370" cy="20" r="5" fill="#C7FF3D" opacity="0.35"></circle>
+      <rect x="50" y="120" width="5" height="9" rx="1" fill="#C7FF3D" opacity="0.3" transform="rotate(10 50 120)"></rect>
+      <rect x="350" y="140" width="8" height="5" rx="1" fill="#FF5EA8" opacity="0.3" transform="rotate(-20 350 140)"></rect>
+    </svg>
+  </div>
+
+  <div class="hb-container">
+    <div class="hb-grid">
+
+      <!-- LEFT: Content Column -->
+      <div class="hb-content">
+        <div class="hb-eyebrow">
+          <span class="hb-eyebrow-line"></span>
+          <span class="hb-eyebrow-text">WHY EVERYONE FALLS FOR IT</span>
+        </div>
+
+        <h2 class="hb-heading">THE REAL PRIZE<br><span class="hb-heading-accent">IS THE REACTION</span></h2>
+
+        <p class="hb-intro">Forget free Nitro. The actual reward is watching your friend's face go from pure hype to absolute chaos. Fast, dramatic, and meme-worthy — this is the discord prank experience built for maximum bragging rights.</p>
+
+        <!-- Benefit Rows -->
+        <div class="hb-benefits-list">
+
+          <div class="hb-benefit-row">
+            <div class="hb-benefit-icon">
+              <svg data-element-type="icon" data-icon-type="svg" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="14,2 17,11 26,11 19,17 22,26 14,20 6,26 9,17 2,11 11,11" fill="#C7FF3D"></polygon>
+              </svg>
+            </div>
+            <div class="hb-benefit-content">
+              <h3 class="hb-benefit-title">INSTANT HYPE MACHINE</h3>
+              <p class="hb-benefit-desc">The page looks so convincing even seasoned discord users double-take. One click and the suspense is unbearable — exactly as designed.</p>
+            </div>
+          </div>
+
+          <div class="hb-benefit-divider"></div>
+
+          <div class="hb-benefit-row">
+            <div class="hb-benefit-icon">
+              <svg data-element-type="icon" data-icon-type="svg" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="14" cy="14" r="11" stroke="#FF5EA8" stroke-width="2.5" fill="none"></circle>
+                <path d="M8 14 L12 18 L20 10" stroke="#FF5EA8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+            <div class="hb-benefit-content">
+              <h3 class="hb-benefit-title">DRAMATIC REVEAL SEQUENCE</h3>
+              <p class="hb-benefit-desc">A full glitchy fake-hacking animation plays out before the punchline hits. The buildup is half the comedy — pure theatrical chaos.</p>
+            </div>
+          </div>
+
+          <div class="hb-benefit-divider"></div>
+
+          <div class="hb-benefit-row">
+            <div class="hb-benefit-icon">
+              <svg data-element-type="icon" data-icon-type="svg" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="8" width="20" height="14" rx="3" stroke="#C7FF3D" stroke-width="2.5" fill="none"></rect>
+                <path d="M10 8 V6 Q14 3 18 6 V8" stroke="#C7FF3D" stroke-width="2" fill="none" stroke-linecap="round"></path>
+                <circle cx="14" cy="15" r="2.5" fill="#C7FF3D"></circle>
+              </svg>
+            </div>
+            <div class="hb-benefit-content">
+              <h3 class="hb-benefit-title">MEME-WORTHY COMMUNITY FLEX</h3>
+              <p class="hb-benefit-desc">Screenshot the reaction. Post it. Watch it spread. This is top gg discord energy — the kind of prank your whole server talks about for weeks.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT: Visual Proof Collage -->
+      <div class="hb-visual">
+
+        <!-- Backplate top-right peeking -->
+        <div class="hb-backplate hb-backplate-top" aria-hidden="true">
+          <div class="hb-backplate-inner">
+            <span class="hb-backplate-tag">NITRO BOOST</span>
+            <div class="hb-backplate-bar"></div>
+            <div class="hb-backplate-bar hb-bar-short"></div>
+          </div>
+        </div>
+
+        <!-- Main large panel -->
+        <div class="hb-main-panel">
+          <div class="hb-main-panel-header">
+            <div class="hb-panel-dots">
+              <span class="hb-dot hb-dot-red"></span>
+              <span class="hb-dot hb-dot-yellow"></span>
+              <span class="hb-dot hb-dot-green"></span>
+            </div>
+            <span class="hb-panel-title">discord_nitro_claim.exe</span>
+          </div>
+          <div class="hb-main-panel-body">
+            <img data-placeholder="home-benefits-image-1" data-context="A dramatic fake Discord Nitro prize announcement screen with glowing purple and lime green neon colors, showing a fake &quot;YOU WON NITRO&quot; popup with confetti and hype graphics, styled like a meme-festival game launch poster, dark background with neon accents" width="480" height="300" src="/assets/site-home-benefits-image-1.webp" alt="Fake Discord Nitro prize announcement screen">
+            <div class="hb-panel-overlay">
+              <div class="hb-panel-badge">🎉 CLAIMED!</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Backplate bottom-right peeking -->
+        <div class="hb-backplate hb-backplate-bottom" aria-hidden="true">
+          <div class="hb-backplate-inner">
+            <img data-placeholder="home-benefits-image-2" data-context="A shocked meme face reaction screenshot showing extreme surprise and disbelief, cartoon-style with wide eyes and open mouth, on a dark purple background with glitch artifacts, representing the moment someone realizes they got trolled on Discord" width="200" height="130" src="/assets/site-home-benefits-image-2.webp" alt="Shocked reaction meme face">
+            <div class="hb-backplate-caption">ACTUAL VICTIM FOOTAGE 😂</div>
+          </div>
+        </div>
+
+        <!-- Floating interface fragment -->
+        <div class="hb-fragment">
+          <img data-placeholder="home-benefits-image-3" data-context="A fake Discord chat interface screenshot showing friends reacting in shock to a prank, with messages saying things like &quot;NO WAY&quot; and laugh emojis, styled with Discord dark theme UI elements, glitch color effects and neon highlights" width="180" height="110" src="/assets/site-home-benefits-image-3.webp" alt="Fake Discord chat reaction screenshot">
+          <div class="hb-fragment-label">CHAT GOES WILD</div>
+        </div>
+
+        <!-- Decorative glitch accent -->
+        <div class="hb-glitch-accent" aria-hidden="true">
+          <svg data-no-icon-edit="true" aria-hidden="true" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="5" y="20" width="50" height="4" rx="1" fill="#C7FF3D" opacity="0.7"></rect>
+            <rect x="12" y="28" width="36" height="2" rx="1" fill="#FF5EA8" opacity="0.6"></rect>
+            <rect x="0" y="34" width="60" height="2" rx="1" fill="#C7FF3D" opacity="0.4"></rect>
+            <rect x="8" y="40" width="44" height="3" rx="1" fill="#FF5EA8" opacity="0.3"></rect>
+          </svg>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom zig-zag divider -->
+  <div class="hb-divider-wrapper">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1200 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <filter id="hb-magenta-shadow">
+        <feDropShadow dx="0" dy="-4" stdDeviation="6" flood-color="#FF5EA8" flood-opacity="0.45"></feDropShadow>
+      </filter>
+      <path d="M0,70 L0,35 L50,50 L100,20 L150,45 L200,15 L250,42 L300,18 L350,44 L400,16 L450,43 L500,20 L550,46 L600,18 L650,44 L700,16 L750,42 L800,20 L850,45 L900,15 L950,43 L1000,18 L1050,46 L1100,20 L1150,44 L1200,22 L1200,70 Z" fill="#12102A" filter="url(#hb-magenta-shadow)"></path>
+    </svg>
+  </div>
+
+</section>
+
+<section class="home-testimonials-section" data-layout-spec="Home-testimonials">
+  <!-- Noise texture overlay -->
+  <div class="hts-noise-overlay" aria-hidden="true"></div>
+
+  <!-- Section header -->
+  <div class="hts-container">
+    <div class="hts-header">
+      <div class="hts-eyebrow">
+        <span class="hts-eyebrow-dot"></span>
+        <span>COMMUNITY REACTIONS</span>
+        <span class="hts-eyebrow-dot"></span>
+      </div>
+      <h2 class="hts-title">THEY ALL <span class="hts-title-accent">FELL FOR IT</span> 💀</h2>
+      <p class="hts-subtitle">Real reactions from real victims. No refunds. No regrets.</p>
+    </div>
+
+    <!-- Main 3-up testimonial grid -->
+    <div class="hts-grid">
+
+      <!-- Card 1 -->
+      <article class="hts-card">
+        <div class="hts-card-header">
+          <div class="hts-avatar hts-avatar--cyan">XG</div>
+          <div class="hts-user-info">
+            <span class="hts-username">xX_GamerGhost_Xx</span>
+            <span class="hts-handle">@ghost#4201</span>
+          </div>
+          <div class="hts-verified-badge">✓</div>
+        </div>
+        <div class="hts-card-body">
+          <p class="hts-quote">“BRO I LITERALLY SCREAMED. My screen went full black and then it said ‘HACKING IN PROGRESS’ and I was like WHAT DID I DO TO MY PC”</p>
+        </div>
+        <div class="hts-card-footer">
+          <div class="hts-reactions">
+            <span class="hts-reaction">💀 847</span>
+            <span class="hts-reaction">😭 312</span>
+            <span class="hts-reaction">🔥 91</span>
+          </div>
+          <div class="hts-pixel-tag">VICTIM #1</div>
+        </div>
+        <div class="hts-card-glitch" aria-hidden="true"></div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="hts-card hts-card--featured">
+        <div class="hts-card-header">
+          <div class="hts-avatar hts-avatar--pink">NB</div>
+          <div class="hts-user-info">
+            <span class="hts-username">NoodleBot9000</span>
+            <span class="hts-handle">@noodle#0069</span>
+          </div>
+          <div class="hts-verified-badge hts-verified-badge--gold">★</div>
+        </div>
+        <div class="hts-card-body">
+          <p class="hts-quote">“I sent this to my whole discord server saying ‘FREE NITRO NO CAP’ and now 11 people are mad at me. Worth it. 10/10 would troll again on discord for business purposes 😂”</p>
+        </div>
+        <div class="hts-card-footer">
+          <div class="hts-reactions">
+            <span class="hts-reaction">🤣 2.1k</span>
+            <span class="hts-reaction">💀 999</span>
+            <span class="hts-reaction">👑 204</span>
+          </div>
+          <div class="hts-pixel-tag hts-pixel-tag--gold">TOP TROLL</div>
+        </div>
+        <div class="hts-card-glitch" aria-hidden="true"></div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="hts-card">
+        <div class="hts-card-header">
+          <div class="hts-avatar hts-avatar--lime">SK</div>
+          <div class="hts-user-info">
+            <span class="hts-username">SkibidiKing404</span>
+            <span class="hts-handle">@skibidi#7777</span>
+          </div>
+          <div class="hts-verified-badge">✓</div>
+        </div>
+        <div class="hts-card-body">
+          <p class="hts-quote">“The hacking animation was so convincing I actually unplugged my router. Then it said ‘אכלתה טרולל’ and I had to Google translate it. I deserved this.”</p>
+        </div>
+        <div class="hts-card-footer">
+          <div class="hts-reactions">
+            <span class="hts-reaction">😭 1.4k</span>
+            <span class="hts-reaction">💀 567</span>
+            <span class="hts-reaction">🤦 233</span>
+          </div>
+          <div class="hts-pixel-tag">VICTIM #3</div>
+        </div>
+        <div class="hts-card-glitch" aria-hidden="true"></div>
+      </article>
+
+    </div>
+
+    <!-- Reaction chips strip -->
+    <div class="hts-chips-strip">
+      <div class="hts-chips-label">MORE REACTIONS:</div>
+      <div class="hts-chips-row">
+        <span class="hts-chip">😱 “I thought I had a virus”</span>
+        <span class="hts-chip hts-chip--accent">💀 “אכלתה טרולל indeed”</span>
+        <span class="hts-chip">🤣 “Sent to 30 people”</span>
+        <span class="hts-chip">😭 “My mom saw the screen”</span>
+        <span class="hts-chip hts-chip--lime">🔥 “Best prank 2024”</span>
+        <span class="hts-chip">👾 “Unplugged my PC”</span>
+        <span class="hts-chip">💀 “Cried laughing”</span>
+        <span class="hts-chip hts-chip--accent">🎮 “star citizen discord server got trolled”</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Decorative dead-face meme marks -->
+  <div class="hts-deco-mark hts-deco-mark--left" aria-hidden="true">
+    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" data-no-icon-edit="true" aria-hidden="true">
+      <circle cx="30" cy="30" r="28" stroke="rgba(0,212,255,0.25)" stroke-width="2"></circle>
+      <line x1="18" y1="18" x2="26" y2="26" stroke="rgba(0,212,255,0.4)" stroke-width="2.5" stroke-linecap="round"></line>
+      <line x1="26" y1="18" x2="18" y2="26" stroke="rgba(0,212,255,0.4)" stroke-width="2.5" stroke-linecap="round"></line>
+      <line x1="34" y1="18" x2="42" y2="26" stroke="rgba(0,212,255,0.4)" stroke-width="2.5" stroke-linecap="round"></line>
+      <line x1="42" y1="18" x2="34" y2="26" stroke="rgba(0,212,255,0.4)" stroke-width="2.5" stroke-linecap="round"></line>
+      <path d="M20 42 Q30 36 40 42" stroke="rgba(0,212,255,0.4)" stroke-width="2.5" stroke-linecap="round" fill="none"></path>
+      <circle cx="30" cy="48" r="3" fill="rgba(0,212,255,0.3)"></circle>
+    </svg>
+  </div>
+  <div class="hts-deco-mark hts-deco-mark--right" aria-hidden="true">
+    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" data-no-icon-edit="true" aria-hidden="true">
+      <rect x="10" y="10" width="60" height="60" rx="4" stroke="rgba(233,30,140,0.2)" stroke-width="1.5" stroke-dasharray="4 4"></rect>
+      <line x1="25" y1="28" x2="33" y2="36" stroke="rgba(233,30,140,0.4)" stroke-width="2" stroke-linecap="round"></line>
+      <line x1="33" y1="28" x2="25" y2="36" stroke="rgba(233,30,140,0.4)" stroke-width="2" stroke-linecap="round"></line>
+      <line x1="47" y1="28" x2="55" y2="36" stroke="rgba(233,30,140,0.4)" stroke-width="2" stroke-linecap="round"></line>
+      <line x1="55" y1="28" x2="47" y2="36" stroke="rgba(233,30,140,0.4)" stroke-width="2" stroke-linecap="round"></line>
+      <path d="M26 56 Q40 48 54 56" stroke="rgba(233,30,140,0.4)" stroke-width="2" stroke-linecap="round" fill="none"></path>
+    </svg>
+  </div>
+
+  <!-- Bottom arcade-light wave divider -->
+  <div class="hts-divider-wrapper">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1200 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="hts-glow">
+          <feGaussianBlur stdDeviation="3" result="blur"></feGaussianBlur>
+          <feComposite in="SourceGraphic" in2="blur" operator="over"></feComposite>
+        </filter>
+      </defs>
+      <!-- Glow line -->
+      <path d="M0,45 Q60,25 120,40 T240,35 Q300,42 360,28 T480,38 Q540,44 600,30 T720,40 Q780,36 840,28 T960,38 Q1020,44 1080,32 T1200,42" stroke="rgba(0,212,255,0.6)" stroke-width="2" fill="var(--bg-light)" filter="url(#hts-glow)"></path>
+      <!-- Fill bottom -->
+      <path d="M0,90 L0,45 Q60,25 120,40 T240,35 Q300,42 360,28 T480,38 Q540,44 600,30 T720,40 Q780,36 840,28 T960,38 Q1020,44 1080,32 T1200,42 L1200,90 Z" fill="var(--bg-light)"></path>
+    </svg>
+  </div>
+
+</section>
+
+<section class="home-stats-section" data-layout-spec="Home-stats">
+  <!-- Halftone texture overlay -->
+  <div class="home-stats-section__halftone-left" aria-hidden="true"></div>
+  <div class="home-stats-section__halftone-right" aria-hidden="true"></div>
+
+  <div class="home-stats-section__container">
+
+    <!-- Header -->
+    <div class="home-stats-section__header">
+      <div class="home-stats-section__eyebrow">VERIFIED PRANK INTELLIGENCE™</div>
+      <h2 class="home-stats-section__title">The Numbers Don't Lie.<br><em>Your Friends Do.</em></h2>
+      <p class="home-stats-section__subtitle">Real data from the most legendary troll operation ever deployed on a group chat. These metrics were independently unverified by absolutely nobody.</p>
+    </div>
+
+    <!-- Stats Row -->
+    <div class="home-stats-section__stats-row">
+
+      <div class="home-stats-section__stat-item">
+        <div class="home-stats-section__stat-number">4.2<span class="home-stats-section__stat-unit">M</span></div>
+        <div class="home-stats-section__stat-lime-bar"></div>
+        <div class="home-stats-section__stat-label">Clicks on<br>"Get Free Nitro"</div>
+      </div>
+
+      <div class="home-stats-section__stat-divider" aria-hidden="true"></div>
+
+      <div class="home-stats-section__stat-item">
+        <div class="home-stats-section__stat-number">99<span class="home-stats-section__stat-unit">%</span></div>
+        <div class="home-stats-section__stat-lime-bar"></div>
+        <div class="home-stats-section__stat-label">Shocked<br>Reactions Recorded</div>
+      </div>
+
+      <div class="home-stats-section__stat-divider" aria-hidden="true"></div>
+
+      <div class="home-stats-section__stat-item">
+        <div class="home-stats-section__stat-number">317<span class="home-stats-section__stat-unit">×</span></div>
+        <div class="home-stats-section__stat-lime-bar"></div>
+        <div class="home-stats-section__stat-label">Average Group Chat<br>Chaos Multiplier</div>
+      </div>
+
+      <div class="home-stats-section__stat-divider" aria-hidden="true"></div>
+
+      <div class="home-stats-section__stat-item">
+        <div class="home-stats-section__stat-number">∞</div>
+        <div class="home-stats-section__stat-lime-bar"></div>
+        <div class="home-stats-section__stat-label">Replay Value<br>in Legendary Pranks</div>
+      </div>
+
+    </div>
+
+    <!-- Trust Badges Row -->
+    <div class="home-stats-section__badges-row">
+      <div class="home-stats-section__badge">
+        <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+        <span>INSTANT TRIGGER</span>
+      </div>
+      <div class="home-stats-section__badge-sep" aria-hidden="true">·</div>
+      <div class="home-stats-section__badge">
+        <i class="fa-solid fa-skull" aria-hidden="true"></i>
+        <span>DRAMATIC REVEAL</span>
+      </div>
+      <div class="home-stats-section__badge-sep" aria-hidden="true">·</div>
+      <div class="home-stats-section__badge">
+        <i class="fa-solid fa-fire" aria-hidden="true"></i>
+        <span>LEGENDARY PRANK ENERGY</span>
+      </div>
+      <div class="home-stats-section__badge-sep" aria-hidden="true">·</div>
+      <div class="home-stats-section__badge">
+        <i class="fa-solid fa-trophy" aria-hidden="true"></i>
+        <span>TOP GG DISCORD CERTIFIED</span>
+      </div>
+      <div class="home-stats-section__badge-sep" aria-hidden="true">·</div>
+      <div class="home-stats-section__badge">
+        <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+        <span>100% TROLL APPROVED</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Diagonal Divider with Magenta Glow -->
+  <div class="home-stats-section__divider-wrapper">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1200 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="stats-divider-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#FF5EA8" stop-opacity="0.6"></stop>
+          <stop offset="50%" stop-color="#FF5EA8" stop-opacity="1"></stop>
+          <stop offset="100%" stop-color="#C7FF3D" stop-opacity="0.4"></stop>
+        </linearGradient>
+      </defs>
+      <!-- Glow edge line -->
+      <line x1="0" y1="20" x2="1200" y2="80" stroke="url(#stats-divider-glow)" stroke-width="2.5" opacity="0.9"></line>
+      <!-- Fill bottom -->
+      <path d="M0,90 L0,22 L1200,82 L1200,90 Z" fill="#0A0A14"></path>
+    </svg>
+  </div>
+
+</section>
+
+<section id="showcase" class="home-showcase-section" data-layout-spec="Home-showcase">
+  <!-- Scanline texture overlay -->
+  <div class="home-showcase-scanlines" aria-hidden="true"></div>
+
+  <!-- Decorative glitch skull -->
+  <svg class="home-showcase-skull-deco" aria-hidden="true" data-no-icon-edit="true" viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g opacity="0.18">
+      <rect x="2" y="0" width="196" height="220" rx="4" fill="none"></rect>
+      <!-- skull base -->
+      <ellipse cx="100" cy="90" rx="72" ry="78" fill="none" stroke="#FF5EA8" stroke-width="2"></ellipse>
+      <ellipse cx="100" cy="90" rx="74" ry="80" fill="none" stroke="#C7FF3D" stroke-width="1" opacity="0.5" transform="translate(4,0)"></ellipse>
+      <!-- eyes -->
+      <ellipse cx="72" cy="82" rx="18" ry="20" fill="#FF5EA8" opacity="0.7"></ellipse>
+      <ellipse cx="128" cy="82" rx="18" ry="20" fill="#C7FF3D" opacity="0.7"></ellipse>
+      <!-- nose -->
+      <path d="M94 108 L100 120 L106 108 Z" fill="#FF5EA8" opacity="0.6"></path>
+      <!-- teeth -->
+      <rect x="72" y="148" width="14" height="22" rx="2" fill="#FFF8F0" opacity="0.6"></rect>
+      <rect x="90" y="148" width="14" height="22" rx="2" fill="#FFF8F0" opacity="0.6"></rect>
+      <rect x="108" y="148" width="14" height="22" rx="2" fill="#FFF8F0" opacity="0.6"></rect>
+      <!-- jaw -->
+      <path d="M40 138 Q100 175 160 138 L160 158 Q100 200 40 158 Z" fill="none" stroke="#FF5EA8" stroke-width="2"></path>
+      <!-- glitch lines -->
+      <rect x="60" y="60" width="80" height="3" fill="#C7FF3D" opacity="0.4"></rect>
+      <rect x="55" y="100" width="90" height="2" fill="#FF5EA8" opacity="0.3"></rect>
+    </g>
+  </svg>
+
+  <div class="home-showcase-container">
+
+    <!-- LEFT: Storyboard Text -->
+    <div class="home-showcase-left">
+      <div class="home-showcase-badge">
+        <span class="home-showcase-badge-dot"></span>
+        <span>MISSION BRIEFING</span>
+      </div>
+
+      <h2 class="home-showcase-heading">THE PRANK<br><span class="home-showcase-heading-accent">SEQUENCE</span><br>REVEALED</h2>
+
+      <p class="home-showcase-intro">Three acts. One legendary troll. Zero mercy. Here's exactly how the trap is laid — and why your friends will never see it coming.</p>
+
+      <div class="home-showcase-beats">
+
+        <div class="home-showcase-beat">
+          <div class="home-showcase-beat-num">01</div>
+          <div class="home-showcase-beat-content">
+            <h3 class="home-showcase-beat-title">THE FREE CLAIM MOMENT</h3>
+            <p class="home-showcase-beat-desc">A pristine Discord-style interface presents the ultimate temptation: free Nitro, yours for the taking. One big glowing button. They can't resist. No one can.</p>
+          </div>
+        </div>
+
+        <div class="home-showcase-beat">
+          <div class="home-showcase-beat-num">02</div>
+          <div class="home-showcase-beat-content">
+            <h3 class="home-showcase-beat-title">SYSTEM BREACH CHAOS</h3>
+            <p class="home-showcase-beat-desc">The terminal erupts. Fake IP traces, cascading warning alerts, dramatic loading bars, and ominous system logs flood the screen in full cinematic meltdown mode.</p>
+          </div>
+        </div>
+
+        <div class="home-showcase-beat">
+          <div class="home-showcase-beat-num">03</div>
+          <div class="home-showcase-beat-content">
+            <h3 class="home-showcase-beat-title">THE TROLL REVEAL</h3>
+            <p class="home-showcase-beat-desc">Just when panic peaks — the curtain drops. A bold Hebrew punchline detonates across the screen. Four words. Maximum damage. Pure comedic payoff.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RIGHT: Scene Frames Stack -->
+    <div class="home-showcase-right">
+
+      <!-- Frame 1: Free Claim -->
+      <div class="home-showcase-frame home-showcase-frame--1">
+        <div class="home-showcase-frame-header">
+          <span class="home-showcase-frame-dot home-showcase-frame-dot--red"></span>
+          <span class="home-showcase-frame-dot home-showcase-frame-dot--yellow"></span>
+          <span class="home-showcase-frame-dot home-showcase-frame-dot--green"></span>
+          <span class="home-showcase-frame-label">SCENE_01.exe</span>
+        </div>
+        <figure class="home-showcase-frame-figure">
+          <img data-placeholder="home-showcase-image-1" data-context="A fake Discord Nitro giveaway interface screenshot in dark purple/navy Discord style, showing a glowing purple button labeled GET FREE NITRO, confetti particles, a Discord logo, and a premium gift box icon. The UI looks convincingly official with Discord branding colors, deep dark background, and neon purple accents. Styled like a game-launch promotional screen." width="480" height="280" src="/assets/site-home-showcase-image-1.webp" alt="Scene 1: The free Discord Nitro claim screen with glowing button">
+          <div class="home-showcase-frame-overlay">
+            <span class="home-showcase-frame-tag">ACT I — THE BAIT</span>
+          </div>
+        </figure>
+      </div>
+
+      <!-- Frame 2: Terminal Chaos -->
+      <div class="home-showcase-frame home-showcase-frame--2">
+        <div class="home-showcase-frame-header">
+          <span class="home-showcase-frame-dot home-showcase-frame-dot--red"></span>
+          <span class="home-showcase-frame-dot home-showcase-frame-dot--yellow"></span>
+          <span class="home-showcase-frame-dot home-showcase-frame-dot--green"></span>
+          <span class="home-showcase-frame-label">HACK_SEQUENCE.sh</span>
+        </div>
+        <figure class="home-showcase-frame-figure">
+          <img data-placeholder="home-showcase-image-2" data-context="A dramatic fake hacking terminal screen with dark background, cascading green and red monospace text showing fake IP addresses being traced, warning alerts in red, loading progress bars, system breach messages like ACCESS GRANTED and SCANNING NETWORK, glitch artifacts and scanline effects. Looks like a movie hacking scene crossed with a meme. Cinematic and dramatic." width="480" height="280" src="/assets/site-home-showcase-image-2.webp" alt="Scene 2: Fake hacking terminal with cascading warnings and breach alerts">
+          <div class="home-showcase-frame-overlay home-showcase-frame-overlay--danger">
+            <span class="home-showcase-frame-tag home-showcase-frame-tag--danger">ACT II — THE CHAOS</span>
+          </div>
+        </figure>
+      </div>
+
+      <!-- Frame 3: Troll Reveal -->
+      <div class="home-showcase-frame home-showcase-frame--3">
+        <div class="home-showcase-frame-header">
+          <span class="home-showcase-frame-dot home-showcase-frame-dot--red"></span>
+          <span class="home-showcase-frame-dot home-showcase-frame-dot--yellow"></span>
+          <span class="home-showcase-frame-dot home-showcase-frame-dot--green"></span>
+          <span class="home-showcase-frame-label">TROLL_REVEAL.lol</span>
+        </div>
+        <figure class="home-showcase-frame-figure">
+          <img data-placeholder="home-showcase-image-3" data-context="A comedic prank reveal screen showing a huge laughing troll face emoji or meme face, with bold Hebrew text displayed dramatically on screen, confetti explosion, bright neon pink and lime green colors, and a YOU GOT TROLLED message. The background has glitch effects, rainbow scanlines, and a party atmosphere. Looks like a victorious meme moment frozen in time." width="480" height="280" src="/assets/site-home-showcase-image-3.webp" alt="Scene 3: The final troll reveal with Hebrew punchline and meme celebration">
+          <div class="home-showcase-frame-overlay home-showcase-frame-overlay--win">
+            <span class="home-showcase-frame-tag home-showcase-frame-tag--win">ACT III — THE PAYOFF</span>
+          </div>
+        </figure>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom Divider: Fractured static band -->
+  <div class="home-showcase-divider-wrapper">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1200 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Cyan streak -->
+      <rect x="0" y="28" width="340" height="3" fill="#00D4FF" opacity="0.7"></rect>
+      <rect x="380" y="22" width="120" height="2" fill="#00D4FF" opacity="0.5"></rect>
+      <rect x="520" y="30" width="80" height="2" fill="#00D4FF" opacity="0.4"></rect>
+      <!-- Lime streaks -->
+      <rect x="200" y="18" width="60" height="2" fill="#C7FF3D" opacity="0.8"></rect>
+      <rect x="600" y="25" width="200" height="3" fill="#C7FF3D" opacity="0.6"></rect>
+      <rect x="850" y="20" width="350" height="2" fill="#C7FF3D" opacity="0.5"></rect>
+      <!-- Pink accent -->
+      <rect x="720" y="32" width="90" height="2" fill="#FF5EA8" opacity="0.7"></rect>
+      <rect x="100" y="35" width="40" height="1" fill="#FF5EA8" opacity="0.5"></rect>
+      <!-- Main fill transitioning down -->
+      <path d="M0,90 L0,38 L48,32 L95,40 L160,28 L230,42 L310,30 L390,44 L460,26 L540,38 L620,22 L700,40 L780,28 L860,44 L940,32 L1020,46 L1100,28 L1200,42 L1200,90 Z" fill="#1B1230"></path>
+    </svg>
+  </div>
+
+</section>
+
+<section id="cta" class="home-cta-section" data-layout-spec="Home-cta">
+  <!-- Scanline overlay -->
+  <div class="home-cta-scanlines" aria-hidden="true"></div>
+
+  <!-- Radial glow orbs -->
+  <div class="home-cta-glow home-cta-glow--left" aria-hidden="true"></div>
+  <div class="home-cta-glow home-cta-glow--right" aria-hidden="true"></div>
+
+  <!-- Dead-face meme decoration (left) -->
+  <svg class="home-cta-meme-face" data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="40" cy="40" r="36" fill="none" stroke="#00D4FF" stroke-width="2.5" opacity="0.7"></circle>
+    <line x1="22" y1="22" x2="30" y2="30" stroke="#00D4FF" stroke-width="2.5" stroke-linecap="round" opacity="0.7"></line>
+    <line x1="30" y1="22" x2="22" y2="30" stroke="#00D4FF" stroke-width="2.5" stroke-linecap="round" opacity="0.7"></line>
+    <line x1="50" y1="22" x2="58" y2="30" stroke="#00D4FF" stroke-width="2.5" stroke-linecap="round" opacity="0.7"></line>
+    <line x1="58" y1="22" x2="50" y2="30" stroke="#00D4FF" stroke-width="2.5" stroke-linecap="round" opacity="0.7"></line>
+    <path d="M26 54 Q40 68 54 54" fill="none" stroke="#00D4FF" stroke-width="2.5" stroke-linecap="round" opacity="0.7"></path>
+    <ellipse cx="40" cy="62" rx="7" ry="4" fill="#00D4FF" opacity="0.5"></ellipse>
+  </svg>
+
+  <!-- Confetti dots decoration (right) -->
+  <svg class="home-cta-confetti" data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg">
+    <rect x="10" y="20" width="8" height="4" rx="1" fill="#C7FF3D" opacity="0.6" transform="rotate(20 14 22)"></rect>
+    <rect x="40" y="8" width="6" height="3" rx="1" fill="#FF5EA8" opacity="0.55" transform="rotate(-15 43 9)"></rect>
+    <rect x="80" y="30" width="7" height="3" rx="1" fill="#00D4FF" opacity="0.5" transform="rotate(35 83 31)"></rect>
+    <circle cx="120" cy="15" r="3" fill="#C7FF3D" opacity="0.65"></circle>
+    <circle cx="20" cy="80" r="2" fill="#FF5EA8" opacity="0.5"></circle>
+    <rect x="130" y="60" width="9" height="4" rx="1" fill="#C7FF3D" opacity="0.6" transform="rotate(-25 134 62)"></rect>
+    <circle cx="60" cy="110" r="2.5" fill="#00D4FF" opacity="0.45"></circle>
+    <rect x="100" y="130" width="6" height="3" rx="1" fill="#FF5EA8" opacity="0.55" transform="rotate(10 103 131)"></rect>
+    <circle cx="140" cy="100" r="3" fill="#C7FF3D" opacity="0.6"></circle>
+    <rect x="30" y="160" width="8" height="4" rx="1" fill="#C7FF3D" opacity="0.5" transform="rotate(40 34 162)"></rect>
+    <circle cx="110" cy="175" r="2" fill="#FF5EA8" opacity="0.5"></circle>
+  </svg>
+
+  <div class="home-cta-container">
+    <!-- Badge -->
+    <div class="home-cta-badge">⚡ LIMITED TIME OFFER ⚡</div>
+
+    <!-- Main heading -->
+    <h2 class="home-cta-heading">DARE TO CLAIM YOUR<br><span class="home-cta-heading-accent">FREE NITRO</span><br>RIGHT NOW?</h2>
+
+    <!-- Paragraph -->
+    <p class="home-cta-para">What happens next is instant, dramatic, and absolutely unforgettable. One click is all it takes — brace yourself for the fastest, most ridiculous experience on the internet. No cap.</p>
+
+    <!-- CTA Button -->
+    <div class="home-cta-btn-wrap">
+      <a href="#get-nitro" class="home-cta-btn">🎉 CLAIM FREE NITRO NOW 🎉</a>
+      <p class="home-cta-microcopy">Warning: What happens next is fast, glitchy, and 100% unhinged.</p>
+    </div>
+
+    <!-- Lime separator -->
+    <div class="home-cta-rule" aria-hidden="true"></div>
+
+    <!-- Promise points -->
+    <div class="home-cta-promises">
+      <span class="home-cta-promise-item">✅ Instant Activation</span>
+      <span class="home-cta-promise-dot" aria-hidden="true">·</span>
+      <span class="home-cta-promise-item">🔒 100% Legit (Trust Us)</span>
+      <span class="home-cta-promise-dot" aria-hidden="true">·</span>
+      <span class="home-cta-promise-item">😂 Totally Not A Troll</span>
+    </div>
+  </div>
+</section>
+  </main>
+  
+  <footer class="site-footer"><div class="footer-glitch-bar"><span class="glitch-text" data-text="TOTALLY LEGIT FOOTER">TOTALLY LEGIT FOOTER</span></div><div class="footer-container"><div class="footer-grid"><div class="footer-col footer-brand"><img src="/assets/discord-entertainment-humor-logo.webp" alt="discord" class="logo"><p class="footer-tagline">Your <span class="footer-accent">100% real</span> source for definitely-not-a-prank entertainment. No hacking. Probably.</p><div class="footer-social"><a href="[facebook_handle]" aria-label="Facebook" class="social-link"><i class="fab fa-facebook-f"></i></a><a href="[instagram_handle]" aria-label="Instagram" class="social-link"><i class="fab fa-instagram"></i></a><a href="[whatsapp_handle]" aria-label="WhatsApp" class="social-link"><i class="fab fa-whatsapp"></i></a></div></div><div class="footer-col footer-links"><h3 class="footer-heading"><span class="heading-bracket">[</span> Navigate <span class="heading-bracket">]</span></h3><ul class="footer-nav"><li><a href="#features"><i class="fas fa-chevron-right footer-nav-icon"></i>Features</a></li><li><a href="#benefits"><i class="fas fa-chevron-right footer-nav-icon"></i>Benefits</a></li><li><a href="#testimonials"><i class="fas fa-chevron-right footer-nav-icon"></i>Testimonials</a></li><li><a href="#stats"><i class="fas fa-chevron-right footer-nav-icon"></i>Stats</a></li><li><a href="#showcase"><i class="fas fa-chevron-right footer-nav-icon"></i>Showcase</a></li></ul></div><div class="footer-col footer-contact-col"><h3 class="footer-heading"><span class="heading-bracket">[</span> Contact <span class="heading-bracket">]</span></h3><ul class="footer-contact"><li><span class="contact-icon"><i class="fas fa-envelope"></i></span><span class="contact-text"><a href="mailto:[business_email]">[business_email]</a></span></li><li><span class="contact-icon"><i class="fas fa-phone"></i></span><span class="contact-text"><a href="tel:[business_phone]">[business_phone]</a></span></li><li><a href="/"><span class="contact-icon"><i class="fas fa-map-marker-alt"></i></span><span class="contact-text">[business_address]</span></a></li></ul><div class="footer-badge"><i class="fas fa-shield-alt"></i><span>Definitely Secure™</span></div></div><div class="footer-col footer-extra"><h3 class="footer-heading"><span class="heading-bracket">[</span> Status <span class="heading-bracket">]</span></h3><div class="footer-status-box"><div class="status-item"><span class="status-dot active"></span><span class="status-label">Prank Engine</span><span class="status-value">ONLINE</span></div><div class="status-item"><span class="status-dot active"></span><span class="status-label">Free Nitro Supply</span><span class="status-value">∞ LEFT</span></div><div class="status-item"><span class="status-dot warning"></span><span class="status-label">Suspicion Level</span><span class="status-value">MAXIMUM</span></div><div class="status-item"><span class="status-dot active"></span><span class="status-label">Laughs Delivered</span><span class="status-value">9,999+</span></div></div></div></div></div><div class="footer-divider"><span class="divider-icon"><i class="fas fa-skull"></i></span></div><div class="footer-bottom-container"><div class="footer-bottom"><p class="footer-copyright">© 2026 discord. All rights reserved. <span class="copyright-sub">(Results may vary. No actual Nitro included.)</span></p><div class="footer-legal"><a href="/privacy">Privacy Policy</a><span class="legal-sep">|</span><a href="/terms">Terms &amp; Conditions</a><span class="legal-sep">|</span><a href="/accessibility">Accessibility</a><span class="legal-sep">|</span><a href="https://zappy5.com" target="_blank" class="zappy-attribution">Generated by Zappy</a></div></div></div></footer>
+  
+  <a href="https://wa.me/[whatsapp_handle]" class="whatsapp-float" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  
+  <div data-integration="accessibility:toolbar"></div>
+
+    <script src="/script.js"></script>
+
+    <script id="zappy-mobile-submenu-script">
+    (function() {
+      function initMobileSubmenuToggles() {
+        if (window.innerWidth > 768) {
+          document.querySelectorAll('.mobile-submenu-toggle').forEach(function(btn) { btn.remove(); });
+          document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) { menu.classList.remove('mobile-expanded'); });
+          return;
+        }
+        var items = document.querySelectorAll('.nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu)');
+        items.forEach(function(li) {
+          if (li.querySelector('.mobile-submenu-toggle')) return;
+          var submenu = li.querySelector('.sub-menu');
+          var parentLink = li.querySelector(':scope > a');
+          if (!submenu || !parentLink) return;
+          var toggleBtn = document.createElement('button');
+          toggleBtn.className = 'mobile-submenu-toggle';
+          toggleBtn.setAttribute('aria-label', 'Toggle submenu');
+          toggleBtn.setAttribute('type', 'button');
+          parentLink.insertAdjacentElement('afterend', toggleBtn);
+          toggleBtn.addEventListener('click', function(e) {
+            e.preventDefault(); e.stopPropagation();
+            document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) {
+              if (menu !== submenu) { menu.classList.remove('mobile-expanded'); var t = menu.parentElement.querySelector('.mobile-submenu-toggle'); if(t) t.classList.remove('expanded'); }
+            });
+            submenu.classList.toggle('mobile-expanded');
+            toggleBtn.classList.toggle('expanded');
+          });
+        });
+      }
+      if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initMobileSubmenuToggles); }
+      else { initMobileSubmenuToggles(); }
+      var resizeTimer; window.addEventListener('resize', function() { clearTimeout(resizeTimer); resizeTimer = setTimeout(initMobileSubmenuToggles, 250); });
+      // Re-initialize when mobile menu becomes visible (MutationObserver)
+      var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.type === 'attributes') {
+            var target = mutation.target;
+            if (target.classList && (target.classList.contains('active') || target.classList.contains('open'))) {
+              setTimeout(initMobileSubmenuToggles, 100);
+            }
+          }
+        });
+      });
+      setTimeout(function() {
+        document.querySelectorAll('.mobile-menu, .nav-menu, #navMenu, nav').forEach(function(menu) {
+          observer.observe(menu, { attributes: true, attributeFilter: ['class', 'style'] });
+        });
+      }, 500);
+    })();
+    </script>
+
+    <script id="zappy-navbar-scroll-effect">
+    (function(){
+      var nb=document.querySelector('nav.navbar,.navbar:not(.zappy-catalog-menu)');
+      var cm=document.querySelector('.zappy-catalog-menu,#zappy-catalog-menu');
+      if(!nb)return;
+      var fb='rgba(255,248,240,0.85)';
+      var th=60;
+      var rs=getComputedStyle(document.documentElement);
+      var td=rs.getPropertyValue('--text-dark').trim()||'#1a1a1a';
+      var tl=rs.getPropertyValue('--text-light').trim()||'#ffffff';
+      var st=true?td:tl;
+      nb.style.transition='background 0.3s ease,backdrop-filter 0.3s ease,-webkit-backdrop-filter 0.3s ease,box-shadow 0.3s ease';
+      if(cm)cm.style.transition='background 0.3s ease,backdrop-filter 0.3s ease,-webkit-backdrop-filter 0.3s ease';
+      var neSel='a,.navbar-brand,.navbar-brand a,.dropdown-toggle,.mobile-toggle,.phone-header-btn,.mobile-hamburger-btn,.mobile-close-btn,.mobile-submenu-toggle,.nav-link';
+      var skipCls=['cart-link','login-link','nav-search-toggle','search-toggle'];
+      function sTC(c,clr){var els=c.querySelectorAll(neSel);for(var i=0;i<els.length;i++){var sk=false;if(els[i].closest('.sub-menu')||els[i].closest('.dropdown-menu')){sk=true;}for(var j=0;j<skipCls.length;j++){if(els[i].classList.contains(skipCls[j])){sk=true;break;}}if(!sk)els[i].style.setProperty('color',clr,'important');}}
+      function cTC(c){var els=c.querySelectorAll(neSel);for(var i=0;i<els.length;i++){if(els[i].closest('.sub-menu')||els[i].closest('.dropdown-menu'))continue;els[i].style.removeProperty('color');}}
+      function applyScrolled(){
+        nb.classList.add('scrolled');
+        if(window.innerWidth>768){
+          nb.style.setProperty('--frosted-text',st);
+          nb.style.setProperty('background-image','none','important');
+          nb.style.setProperty('background-color',fb,'important');
+          nb.style.backdropFilter='blur(12px)';nb.style.webkitBackdropFilter='blur(12px)';nb.style.boxShadow='0 2px 16px rgba(0,0,0,0.12)';
+          sTC(nb,st);
+        }
+        if(cm){cm.classList.add('scrolled');if(window.innerWidth>768){cm.style.setProperty('background',fb,'important');cm.style.setProperty('backdrop-filter','blur(12px)','important');cm.style.setProperty('-webkit-backdrop-filter','blur(12px)','important');sTC(cm,st);}}
+      }
+      function onS(){
+        if(window._zappyNavNoDarkHero) return;
+        if(window.innerWidth<=768){nb.classList.remove('scrolled');cTC(nb);if(cm){cm.classList.remove('scrolled');cTC(cm);}return;}
+        var y=window.scrollY||window.pageYOffset;
+        if(y>th){
+          nb.classList.add('scrolled');nb.style.setProperty('background-color',fb,'important');nb.style.setProperty('background-image','none','important');
+          nb.style.setProperty('--frosted-text',st);nb.style.backdropFilter='blur(12px)';nb.style.webkitBackdropFilter='blur(12px)';nb.style.boxShadow='0 2px 16px rgba(0,0,0,0.12)';
+          sTC(nb,st);
+          if(cm){cm.classList.add('scrolled');cm.style.setProperty('background',fb,'important');cm.style.setProperty('backdrop-filter','blur(12px)','important');cm.style.setProperty('-webkit-backdrop-filter','blur(12px)','important');sTC(cm,st);}
+        }else{
+          nb.classList.remove('scrolled');nb.style.setProperty('background-color','transparent','important');nb.style.removeProperty('background-image');
+          nb.style.removeProperty('--frosted-text');nb.style.backdropFilter='none';nb.style.webkitBackdropFilter='none';nb.style.boxShadow='none';
+          cTC(nb);
+          if(cm){cm.classList.remove('scrolled');cm.style.setProperty('background','transparent','important');cm.style.setProperty('backdrop-filter','none','important');cm.style.setProperty('-webkit-backdrop-filter','none','important');cTC(cm);}
+        }
+      }
+      function sLum(rv,gv,bv){rv/=255;gv/=255;bv/=255;rv=rv<=0.03928?rv/12.92:Math.pow((rv+0.055)/1.055,2.4);gv=gv<=0.03928?gv/12.92:Math.pow((gv+0.055)/1.055,2.4);bv=bv<=0.03928?bv/12.92:Math.pow((bv+0.055)/1.055,2.4);return 0.2126*rv+0.7152*gv+0.0722*bv;}
+      window.addEventListener('scroll',onS,{passive:true});
+      window.addEventListener('resize',onS,{passive:true});
+      onS();
+      var heroEl=document.querySelector('section[class*="hero"],[data-hero-type],main>section:first-child');
+      var hasDH=false;
+      if(heroEl){var hCs=getComputedStyle(heroEl);var hBI=hCs.backgroundImage;if(hBI&&hBI!=='none'){if(hBI.indexOf('url(')!==-1){var hM2=hCs.backgroundColor.match(/\d+/g);if(hM2&&hM2.length>=3){hasDH=sLum(parseInt(hM2[0]),parseInt(hM2[1]),parseInt(hM2[2]))<0.4;}else{hasDH=true;}}else if(hBI.indexOf('gradient')!==-1){var cM=hBI.match(/rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/g);if(cM&&cM.length>0){var tLm=0;for(var ci=0;ci<cM.length;ci++){var pts=cM[ci].match(/\d+/g);tLm+=sLum(parseInt(pts[0]),parseInt(pts[1]),parseInt(pts[2]));}hasDH=(tLm/cM.length)<0.4;}else{hasDH=true;}}else{hasDH=true;}}else{var hM=hCs.backgroundColor.match(/\d+/g);if(hM&&hM.length>=3){hasDH=sLum(parseInt(hM[0]),parseInt(hM[1]),parseInt(hM[2]))<0.4;}}}
+      if(!hasDH){window.removeEventListener('scroll',onS);window.removeEventListener('resize',onS);applyScrolled();window._zappyNavNoDarkHero=true;}
+    })();
+    </script>
+</body>
+</html>
