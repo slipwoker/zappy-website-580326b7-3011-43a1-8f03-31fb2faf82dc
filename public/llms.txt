@@ -7,21 +7,21 @@
 ## Pages
 
 ### Home
-https://example.com
+https://discord.zappy5.app
 Think you scored free Discord Nitro? Watch the ultimate prank unfold! A hilarious fake hack scene awaits every curious clicker. Share with friends today!
 
 ## Legal & Policy
 
 ### Privacy Policy
-https://example.com/privacy
+https://discord.zappy5.app/privacy
 Information about how user data is collected, stored, and protected.
 
 ### Terms & Conditions
-https://example.com/terms
+https://discord.zappy5.app/terms
 Legal terms describing service usage, rights, and policies.
 
 ### Accessibility Statement
-https://example.com/accessibility
+https://discord.zappy5.app/accessibility
 Information about WCAG compliance and accessibility features.
 
 ---
@@ -49,6 +49,6 @@ entertainment/humor
 
 # Machine-readable feeds
 
-- Sitemap (XML): https://example.com/sitemap.xml
-- Robots: https://example.com/robots.txt
-- Flattened page text (for LLMs): https://example.com/llms-full.txt
+- Sitemap (XML): https://discord.zappy5.app/sitemap.xml
+- Robots: https://discord.zappy5.app/robots.txt
+- Flattened page text (for LLMs): https://discord.zappy5.app/llms-full.txt
